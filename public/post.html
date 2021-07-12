@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+        <title>The Generics | About</title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="styles.css" />
+        <script src="./post.js"></script>
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="store">STORE</a></li>
+                    <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+                <br><br><li><a href="post.html" id="postRef">NEW POST</a></li>
+            </nav>
+            <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Post a new shoe listing</h2>
+        </section>
+
+        <!-- FULL POST PAGE -->
+<div id="postPage"style="display: none;">
+    <br>
+    <div id="createListing" class="shadow">
+      <form id="create-listing" style="text-align: left; font-size: 100%; margin-left: 15%">
+          <br>
+          <label style = "text-align: center; color: black;" >Stance: </label>
+          
+          <!-- CHANGE THIS FOR RADIO BUTTONS SO BOTH ARE REQUIRED -->
+            <input  id = "goofyRadio" type = "radio" name="CreateListing" class="requiredShoeInput" value = "Goofy">
+            <label style = "font-weight: 500; font-size: 50%; text-align: center; color: black;">Goofy</label>
+            <input  id = "regularRadio" type = "radio" name="CreateListing" value = "Regular">
+            <label style = "font-weight: 500; font-size: 50%; text-align: center; color: black;" >Regular</label>
+          <br>
+          <label for = "Brand" style = "text-align: center; color: black;">Brand: </label>
+          
+          <!--selector for brand-->
+  
+          <select onclick = "makeClean(document.getElementById('brand'))"name = "Brand" id = "brand" class="requiredShoeInput">
+            <option disabled selected value> -- select an option -- </option>
+              <option value="Nike">Nike</option>
+              <option value="Adidas">Adidas</option>
+          </select>
+          <br>
+          <label for = "Quality" style = "text-align: left; color: black;">Quality: </label>
+          <select onclick = "makeClean(document.getElementById('quality'))" name = "Quality" id = "quality" class="requiredShoeInput">
+            <option disabled selected value> -- select an option -- </option>
+            <option value="Perfect">Perfect</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Poor">Poor</option>
+            <option value="Terrible">Terrible</option>
+        </select>
+          
+          <!--selector for size (im assuming men's maybe we should have a selector for mens vs womens?)-->
+  
+          <br>
+          <label for = "Size" style = "text-align: left; color: black;">Size: </label>
+          <select  onclick = "makeClean(document.getElementById('size'))" name = "Size" id = "size" class="requiredShoeInput">
+            <option disabled selected value> -- select an option -- </option>
+              <option value="8">8</option>
+              <option value="8.5">8.5</option>
+              <option value="9">9</option>
+              <option value="9.5">9.5</option>
+              <option value="10">10</option>
+              <option value="10.5">10.5</option>
+              <option value="11">11</option>
+              <option value="11.5">11.5</option>
+              <option value="12">12</option>
+              <option value="12.5">12.5</option>
+          </select>
+          <br>
+          <!--input for picture upload-->
+          <label for="img" style="color: black;">Select image:</label>
+          <input type="file" id="img" name="img" class="requiredShoeInput" accept="image/*" style="color: black;">
+          <br>
+          <label for="Price">Price (ex: 12.00): </label>
+          <input type = "number" onclick = "makeClean(document.getElementById('price'))" name = "Price" id = "price" class="requiredShoeInput"></input>
+          <br>
+          <br>
+          <input onclick="postShoe()"class="sendButton" value="POST">
+      </form>
+    </div>
+  </div>
+    </body>
+    <br><br>
+</html>

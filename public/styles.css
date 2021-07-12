@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,900);
+
+
+@font-face {
+    font-family: "Booter - Zero Zero";
+    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
+         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: #777;
+}
+
+
+html{
+  /* background-image: url('./Images/skateboard_doodle_seamless_pattern.jpg'); */
+  
+  /* filter:brightness(70%) contrast(150%) saturate(0%) brightness(150%); */
+  /* background-image: linear-gradient( to right, #000000, #ffffff, #000000); */
+
+  /* background-repeat: repeat-y; */
+  /* width: 100%; */
+  /* height: auto; */
+  /* font-family: Lato; */
+  /* color: 186, 106, 125; */
+}
+
+/* body h1 {
+    text-align: center;
+    width: 100%;
+    margin-right: -50%;
+    color:white;
+    font-size: 350%;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  } */
+
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+  }
+
+  .background-filter::after {
+    -webkit-backdrop-filter: blur(5px); /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
+    backdrop-filter: blur(5px); /* Supported in Chrome 76 */
+  
+    content: "";
+    /* display: block; */
+    /* position: absolute; */
+    width: auto; height: auto;
+    top: 0;
+  }
+  
+
+  .listing{
+    font-weight: bold;
+    font-family: monospace;
+    margin:5%;
+    padding: 3%;
+    background-color: white;
+    border-radius: 30px;
+  }
+
+  
+  #shoeListing_child{
+    margin: 5%;
+    width: auto;
+  }
+  #shoeListingID{
+    width: 100%;
+    float: left;
+  }
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
+
+.child {
+  background-color: rgba(126, 126, 126, .4);
+  flex-basis: 50%;
+  text-align: center;
+  font-weight: 600;
+
+}
+
+
+#shoeListingPageHeader{
+  color: black;
+  margin: 5%;
+  font-size: 50px;
+  text-align: center;
+}
+
+.viewButton{
+  width: 60%;
+  padding: 5%;
+  margin: 20%;
+  margin-bottom: 5%;
+  font-size: 25px;
+  background-color: gray;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+}
+
+
+  /* input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: red;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: red;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+   */
+  #name{
+    width: 100%;
+    height: 45%;
+    border-radius: 5px;
+    border: 2px solid black; 
+  }
+
+  .accountDisplay {
+    border: 5px solid black;
+    padding: 5%;
+    font-size: 25px;
+    margin: 5%;
+    background-color: lightgray;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #signOutButton{
+    background-color: crimson;
+    font-size: 40px;
+    border: 5px solid black;
+    width: auto;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 5%;
+    right: 0%;
+    text-align: unset;
+
+  }
+
+  p.inputName{
+    border-radius: 15px;
+    border: 3px solid black;
+    padding: 5%;
+    margin: auto;
+    width: 70%;
+    height: 100px;
+    text-align: left;
+    color: black;
+    background-color:#7eb6ff;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+  }
+
+
+.sendButton {
+    transition: all .5s ease;
+    color: #f5f7fa;
+    border: 3px solid lightgray;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    width: 90%;
+    background-color: black;
+    padding:15px;
+    padding-left: 125px;
+    padding-right: 125px;
+    outline: none;
+    border-radius: 30px;
+
+  }
+
+  .sendButton:hover {
+    color: #b8c6db;
+    background-color: #f5f7fa;
+  }
+
+#registerForm, #loginForm, #purchaseForm{
+    background-image: linear-gradient(#b8c6db,#f5f7fa);
+    background-size: 100% auto;
+    border-radius: 75px; 
+    border: 1px solid black; 
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    color: black;
+    font-size: 200%;
+    font-weight: 600;
+  }
+
+  .checkoutButton {
+    transition: all .5s ease;
+    color: #f5f7fa;
+    border: 3px solid lightgray;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    background-color: #b8c6db;
+    padding:15px;
+    padding-left: 10%;
+    padding-right: 10%;
+    outline: none;
+    border-radius: 30px;
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  }
+  .checkoutButton:hover {
+    color: #b8c6db;
+    background-color: #f5f7fa;
+    
+  }
+
+  /* button{} */
+
+#createListing {
+    background-image: linear-gradient(#b8c6db,#f5f7fa);
+    background-size: 100% auto;
+    border-radius: 75px; 
+    border: 1px solid black; 
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+    color: black;
+    font-size: 200%;
+    font-weight: 600;
+  }
+
+#welcome{
+  text-align: center;
+  font-size: 125px;
+  font-weight: bold;
+  color: white;
+  
+  text-shadow: 0 1px 0 #ccc,
+  0 2px 0 #c9c9c9,
+  0 3px 0 #bbb,
+  0 4px 0 #b9b9b9,
+  0 5px 0 #aaa,
+  0 6px 1px rgba(0,0,0,.1),
+  0 0 5px rgba(0,0,0,.1),
+  0 1px 3px rgba(0,0,0,.3),
+  0 3px 5px rgba(0,0,0,.2),
+  0 5px 10px rgba(0,0,0,.25),
+  0 10px 10px rgba(0,0,0,.2),
+  0 20px 20px rgba(0,0,0,.15);
+}
+#welcomeText{
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  font-weight: 400;
+}
+
+body {
+  font-family: Lato;
+  color: white;
+  filter:none;
+}
+
+#page1 { 
+  filter:none;
+}
+
+.tabled, .middled {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.thin { font-weight: 300; }
+.thick { font-weight: 900; }
+
+a {
+  text-transform: uppercase;
+  font-size: 75px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  text-shadow: 0 1px 0 #ccc,
+  0 2px 0 #c9c9c9,
+  0 3px 0 #bbb,
+  0 4px 0 #b9b9b9,
+  0 5px 0 #aaa,
+  0 6px 1px rgba(0,0,0,.1),
+  0 0 5px rgba(0,0,0,.1),
+  0 1px 3px rgba(0,0,0,.3),
+  0 3px 5px rgba(0,0,0,.2),
+  0 5px 10px rgba(0,0,0,.25),
+  0 10px 10px rgba(0,0,0,.2),
+  0 20px 20px rgba(0,0,0,.15);
+}
+
+p {
+  font-weight: 600;
+  font-size: 35px;
+  margin: 1px;
+  color: black;
+}
+
+[class^="link-"] {
+  display: inline-block;
+  margin: 2em
+}
+
+/* linkone */
+.link-1 a:before, .link-1 a:after {
+  content: '';
+  border-bottom: solid 1px white;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+}
+
+.link-1 a:before { left: 0; }
+.link-1 a:after { right: 0; }
+
+.link-1 a:hover:before, .link-1 a:hover:after {
+  width: 50%;
+}
+
+.link-1 a:before, .link-1 a:after {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-image: linear-gradient( to right, #ffffff, #000000, #ffffff);
+    position:relative;
+    border-radius: 12px; 
+    padding: 3%;
+    margin-bottom: 5%;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    text-shadow: 0 .5px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+    width: auto;
+    right: 0%;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: white;
+    padding: 2%;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    background-image: black;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: auto;
+    height: auto;
+    right: 0;
+    top: 0;
+    font-size: 75px;
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    /* background: lightgray; */
+    color: lightgray;
+    width: auto;
+    right: 0;
+    padding-right: 3%;
+    
+  }
+  .topnav .fa:hover {
+    /* background: lightgray; */
+    color: lightgray;
+    width: auto;
+    right: 0;
+    padding-right: 5%;
+    
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: black;
+    color: white;
+  }
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-image: url("Images/Header Background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+
+.band-name {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+    font-family: "Booter - Zero Zero";
+    font-weight: normal;
+    color: white;
+}
+
+.band-name-large {
+    font-size: 8em;
+}
+
+.content-section {
+    margin: 1em;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+.section-header {
+    font-family: "Metal Mania";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-band-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.main-footer {
+    background-color: #56CCF2;
+    color: white;
+    padding: .25em 0;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+}
+
+.btn-header {
+    margin: .5em 15% 2em 15%;
+    color: white;
+    border: 2px solid #2D9CDB;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 0;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.btn-header:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-play {
+    display: block;
+    margin: 0 auto;
+    color: #2D9CDB;
+    font-size: 4em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    text-align: center;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #56CCF2;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #2D9CDB;
+}
+
+.tour-row {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.tour-row:last-child {
+    border: none;
+}
+
+.tour-item {
+    display: inline-block;
+    padding-right: .5em;
+}
+
+.tour-date {
+    color: #555;
+    width: 11%;
+    font-weight: bold;
+}
+
+.tour-city {
+    width: 24%;
+}
+
+.tour-arena {
+    width: 42%;
+}
+
+.tour-btn {
+    max-width: 19%;
+}
+
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    flex-grow: 1;
+    color: #333;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}

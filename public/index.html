@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <title>The Generics</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="nav main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="store">STORE</a></li>
+                <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+                <br><br><li><a href="post.html" id="postRef">NEW POST</a></li>
+            </ul>
+        </nav>
+        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+        <div class="container">
+            <button type="button" class="btn btn-header">Welcome to our website! Checkout the shop page to browse skate
+                shoes</button>
+        </div>
+    </header>
+    <section class="content-section container">
+
+        <p>
+            <br><br>
+            Skate Shoe Mate is a platform designed towards anybody and everybody interested in skating. We allow
+            for users to post their skate shoes for sale to the public. Skate shoes are an interesting topic because many skaters
+            usually have beat up shoes, where only one of the two shoes of the pair are actually in poor condition. In the case where the
+            one shoe is still 'good', someone can post that listing here in hopes for another skater looking to purchase used shoes or instigate an exchange. 
+            The exchange works as follows: If two users come to an agreement through messaging - they can essentially upload their posts for an exchange.
+
+            <br><br>
+
+            All payment information is processed through Stripe so we, Skate Shoe Mate, are not responsible for anything payment wise. All inquiries about payments
+            should be directed towards Stripe.
+        </p>
+
+        <!-- <body>
+  <p id="welcome">Skate Shoe Mate</p><br>
+  <br>
+  <p id="welcomeText">Welcome to Skate Shoe Mate!</p><br>
+  <hr style="width: 85%;">
+  <br><br><br>
+  </body> -->
+
+        <!-- FULL LOGIN PAGE -->
+        <div id="loginPage" style="display: none;">
+            <h2 style="text-align: center; color: black;">Not registered yet? Go to the Register page</h2><a
+                onclick="loadRegisterPage()" style="text-align: center; font-size: 200%; color: black;">REGISTER PAGE
+                LINK</a><br><br><br>
+            <!-- Set the login form -->
+            <div id="loginForm" class="shadow">
+                <form id="login-form">
+                    <br>
+                    <label>Enter your email</label><br>
+                    <input type="email" id="email" onclick="makeClean(document.getElementById('email'))"
+                        name="user_email" class="requiredLogin"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+                    <label>Enter your password</label><br>
+                    <input type="password" id="password" onclick="makeClean(document.getElementById('password'))"
+                        name="user_password" class="requiredLogin"
+                        style="width: 50%; height: 35px; border: 1px solid black;margin-top: 2%;color: black;"><br><br>
+                    <br><br>
+                    <input onclick="signIn()" class="sendButton" value="LOGIN">
+                </form>
+            </div>
+        </div>
+        <!-- FULL REGISTER PAGE -->
+        <div id="registerPage" style="display: none;">
+            <h2 style="text-align: center; color: black;">Already have an account? Go to the Login page</h2><a
+                onclick="loadLoginPage()" style="text-align: center; font-size: 200%; color: black;">LOGIN PAGE
+                LINK</a><br><br><br>
+            <!-- Set the register form -->
+            <!-- We can also add stuff like confirm password, first name, last name, profile picture -->
+            <!-- The styles should also probably be moved to styles.css -->
+            <div id="registerForm" class="shadow">
+                <form id="register-form">
+                    <br>
+                    <label>Enter a username</label><br>
+                    <input type="text" id="name" onclick="makeClean(document.getElementById('name'))" name="user_name"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+                    <label>Enter a valid email</label><br>
+                    <input type="email" id="emailReg" onclick="makeClean(document.getElementById('emailReg'))"
+                        name="user_email" class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black;margin-top: 2%;color: black;"><br><br>
+                    <label>Enter a password</label><br>
+                    <input type="password" id="passwordReg" onclick="makeClean(document.getElementById('passwordReg'))"
+                        name="user_password" class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black;margin-top: 2%;color: black;"><br><br>
+                    <br><br>
+                    <input onclick="createAccount()" class="sendButton" value="SIGN UP">
+                </form>
+            </div>
+        </div>
+
+        <!-- FULL MESSAGE PAGE -->
+        <div id="messagePage" style="display: none;">
+
+        </div>
+        <!-- FULL MESSAGES PAGE -->
+        <div id="messagesPage" style="display: none;">
+
+        </div>
+
+        <!-- FULL PURCHASE PAGE -->
+        <div id="purchasePage" style="display: none;">
+            <div id="purchaseForm" style="align-items: center;">
+                <img id="picture" style="max-width:85%; max-height: auto; margin-top: 10%">
+                <br>
+                <label>PRICE: </label>
+                <label id="purchasePrice" style="color: green"></label>
+                <br>
+                <label>STANCE: </label>
+                <label id="stance"></label>
+                <br>
+                <label>STYLE: </label>
+                <label id="style"></label>
+                <br>
+                <label>SIZE: </label>
+                <label id="purchaseSize"></label>
+                <br>
+                <label>CONDITION: </label>
+                <label id="condition"></label>
+
+                <br>
+                <input style="margin-bottom: 10%; max-width:85%; max-height: auto;" onclick="checkoutButton()"
+                    class="checkoutButton" type="submit" value="CHECKOUT">
+            </div>
+
+
+        </div>
+        <!-- FULL SEARCH PAGE -->
+        <div id="searchPage" style="display: none;">
+
+        </div>
+
+        <!-- FULL SHOE LISTING PAGE -->
+        <div id="shoeListingPage" style="display: none;">
+            <!-- <label id = "shoeListingPageHeader">Browse & shop available shoes</label> -->
+            <div id="shoeListingFeed">
+
+            </div>
+        </div>
+</body>
+
+</html>
