@@ -19,7 +19,7 @@
 }
 
 
-html{
+/* html{ */
   /* background-image: url('./Images/skateboard_doodle_seamless_pattern.jpg'); */
   
   /* filter:brightness(70%) contrast(150%) saturate(0%) brightness(150%); */
@@ -30,7 +30,7 @@ html{
   /* height: auto; */
   /* font-family: Lato; */
   /* color: 186, 106, 125; */
-}
+/* } */
 
 /* body h1 {
     text-align: center;
