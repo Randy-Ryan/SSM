@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <title>Messages</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="messages.js" defer></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-nav nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="store">STORE</a></li>
+                <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+                <li><a href="post.html" id="postRef">NEW POST</a></li>
+
+            </ul>
+        </nav>
+        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+    </header>
+    <section class="container content-section">
+        <h2 class="section-header">MESSAGES</h2>
+      
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header">Recent Messages</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">Username</span>
+            <span class="cart-price cart-header cart-column">Date/Time</span>
+            <span class="cart-quantity cart-header cart-column">Message</span>
+        </div>
+        <div class="cart-items">
+            
+        </div>
+    </section>
+</body>
+
+</html>
