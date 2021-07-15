@@ -59,7 +59,7 @@ window.onload = function () {
             userIsSignedOut();
         }
     });
-
+}
     function messageUser() {
 
         var error = false;
@@ -127,4 +127,3 @@ window.onload = function () {
             }
 
     }   }
-}
