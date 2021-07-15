@@ -47,7 +47,6 @@ window.onload = function () {
             // will add more hides here
             document.getElementById("postRef").style.display = "";
             document.getElementById("accountRef").style.display = "";
-            document.getElementById("postPage").style.display = "";
 
 
             //load account page for now - should load home page
@@ -60,6 +59,7 @@ window.onload = function () {
         }
     });
 
+}
     function messageUser() {
 
         var error = false;
@@ -110,11 +110,11 @@ window.onload = function () {
                 var fill = "" + generateRandomNumber(1, 10000000);
 
                 firebase.database().ref('messages/' + fill).set({
-                    userSend : userSend,
-                    userRecieve : userRecieve,
-                    date : date,
-                    message : message,
-                    messageID : messageID
+                    userSend: userSend,
+                    userRecieve: userRecieve,
+                    date: date,
+                    message: message,
+                    messageID: messageID
                 }).then(function () {
                     // route to home page and set the url params respectivly
                     alert('successfully added to database!');
@@ -123,8 +123,45 @@ window.onload = function () {
                     // An error happened.
                     alert(error);
                 });
-    
+
             }
 
-    }   }
+        }
+    }
+
+    //function to check if input field is blank
+function isBlank(inputField) {
+    //checks for empty checkbox
+    if (inputField.type === "checkbox") {
+        if (inputField.checked) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    //checks for empty input fields
+    if (inputField.value === "") {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
+//function to make the input fields red
+function makeRed(inputDiv) {
+    //input field set to red
+    inputDiv.style.backgroundColor = "#c80815";
+}
+//function to reset the input fields to normal
+function makeClean(inputDiv) {
+    //text set to black
+    inputDiv.parentNode.style.color = "#000000";
+    //text field set to white	
+    inputDiv.style.backgroundColor = "#FFFFFF";
+}
+
+
+const generateRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+};
