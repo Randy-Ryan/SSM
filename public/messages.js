@@ -118,7 +118,7 @@ window.onload = function () {
                 }).then(function () {
                     // route to home page and set the url params respectivly
                     alert('successfully added to database!');
-                    window.location.href = "/store"
+                    window.location.href = "/messages"
                 }).catch(function (error) {
                     // An error happened.
                     alert(error);
