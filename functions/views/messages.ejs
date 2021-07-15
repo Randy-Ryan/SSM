@@ -31,11 +31,22 @@
       
     </section>
     <section class="container content-section">
-        <h2 class="section-header">Recent Messages</h2>
+        <h2 class="section-header">Message a User</h2>
         <div class="cart-row">
-            <span class="cart-item cart-header cart-column">Username</span>
-            <span class="cart-price cart-header cart-column">Date/Time</span>
-            <span class="cart-quantity cart-header cart-column">Message</span>
+            <label>Enter a Username</label><br>
+                    <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredMessageInput"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+            <label>Enter a Date</label><br>
+                    <input type="text" id="date" onclick="makeClean(document.getElementById('date'))" name="Date" id="date" class="requiredMessageInput"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+            <label>Enter a Message</label><br>
+                    <input type="text" id="message" onclick="makeClean(document.getElementById('message'))" name="Message" id="message" class="requiredMessageInput"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+            <input onclick="messageUser()" class="messageButton" value="Send Message">
+            
         </div>
         <div class="cart-items">
             
