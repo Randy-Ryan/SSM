@@ -59,6 +59,20 @@ window.onload = function () {
     });
 }
 
+function test() {
+
+
+    console.log("testtt")
+    axios.post('https://us-central1-skateshoemate-3a12f.cloudfunctions.net/store')
+    .then(response => {
+        const users = response.data.data;
+        console.log(`GET users`, users);
+    })
+    .catch(error => console.error(error.response.data));
+}
+
+
+
 // on shoe post click (post page)
 function postShoe() {
     var error = false;
@@ -416,7 +430,6 @@ async function createNewShoeListing(shoe) {
     newShoe.id = "shoeListingID";
     // newShoe.className = "";
 
-    // load new food div into the food feed
     document.getElementById("shoeListingFeed").appendChild(newShoe);
 
     storage.child(shoe.imageURL).getDownloadURL().then((url) => {
@@ -529,7 +542,6 @@ function makeClean(inputDiv) {
 
 // TODO
 function startNewMessageWithUser(otherUserId) {
-    // load the exercise feed
     console.log(otherUserId);
     console.log(userID);
     //load the message page between this user & other user id
