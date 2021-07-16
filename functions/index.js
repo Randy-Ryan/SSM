@@ -102,6 +102,13 @@ app.get('/store', (req, res) => {
     });
 })
 
+app.get('/checkout', (req, res) => {
+    shoes.on('value', (snapshot) => {
+        res.render('checkout.ejs', {
+        })
+    });
+})
+
 app.post('/purchase', function (req, res) {
 
 

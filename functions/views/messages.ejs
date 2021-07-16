@@ -35,15 +35,15 @@
             <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername) || (messages[message].userRecieve==theirUsername && messages[message].userSend==username)) { %>
                 <div class="message-item" data-item-id="<%= messages[message].docID %>">
                     <span class="shop-item-title">
-                        <%- "From " + messages[message].userSend + ": to " + messages[message].userRecieve + " || Message:" +
-                            messages[message].message + " (Date: " + messages[message].date + ")" %>
+                        <%- "From " + messages[message].userSend + ": to " + messages[message].userRecieve + " <br><br>" +
+                            messages[message].message + " <br><br>(Date: " + messages[message].date + ")" %>
                     </span>
-
                 </div>
                 <% } %>
                     <% } %>
     </div>
 </section>
+<br><br><br><br>
     <section class="container content-section">
         <div class="cart-row">
             <span id="testTheirs" class="shop-item-price">
@@ -53,8 +53,10 @@
                 class="requiredMessageInput"
                 style="width: 50%; height: 35px; border: 1px solid black; color: black;"><br><br>
             <button onclick="messageUser()" class="messageButton" value="Send Message">SEND MESSAGE</button>
-
         </div>
+        <br><br>
+        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">INITIATE EXCHANGE REQUEST</button>
+
         <div class="cart-items">
 
         </div>
