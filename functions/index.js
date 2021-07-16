@@ -1,5 +1,7 @@
 const functions = require("firebase-functions");
 
+const bodyParser =require('body-parser');
+
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
@@ -40,68 +42,59 @@ var shoes = database.ref()
 
 
 app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
 app.use(express.json())
 app.use(express.static('../public'))
 
+
+
 // const path = require('path')
 
-// exports.store = functions.https.onRequest((req, res) => {
-//     console.log("hey")
-//     res.set('Access-Control-Allow-Origin', '*');
+exports.store = functions.https.onRequest((req, res) => {
+    console.log("hey")
+    res.set('Access-Control-Allow-Origin', '*');
 
-//     if (req.method === 'OPTIONS') {
-//         // Send response to OPTIONS requests
-//         res.set('Access-Control-Allow-Methods', 'GET');
-//         res.set('Access-Control-Allow-Headers', 'Content-Type');
-//         res.set('Access-Control-Max-Age', '3600');
-//         res.status(204).send('');
-//       } else {
-//         console.log("lol")
+    if (req.method === 'OPTIONS') {
+        // Send response to OPTIONS requests
+        res.set('Access-Control-Allow-Methods', 'GET');
+        res.set('Access-Control-Allow-Headers', 'Content-Type');
+        res.set('Access-Control-Max-Age', '3600');
+        res.status(204).send('');
+      } else {
+        console.log("lol")
 
-//     }
+    }``
 
+})
 
 
 // });
-/*
-app.get('/store', (req, res) => {
-    shoes.on('value', (snapshot) => {
-        const data = snapshot.val();
-        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
-        
-        res.render('store.ejs', {
-            stripePublicKey: stripePublicKey,
-            items: snapshot.val().shoes
-        })
-    });
-})*/
 
 app.get('/messages', (req, res) => {
 
-   
-    console.log( req.params.username);
-
+    var params2 = req.query;
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
-        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
-        
+        console.log(params2["username"])
         res.render('messages.ejs', {
             messages: snapshot.val().messages,
-            username: "k"
-            //username: snapshot.val()
-            
+            username: params2["username"]
         })
     });
  
 })
 
+// app.get('/messages', (req, res) => {
+//         res.render('messages.ejs')
+// })
+
 
 
 app.get('/store', (req, res) => {
     shoes.on('value', (snapshot) => {
-        const data = snapshot.val();
-        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
-        
         res.render('store.ejs', {
             stripePublicKey: stripePublicKey,
             items: snapshot.val().shoes

@@ -11,6 +11,7 @@
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         var stripePublicKey = '<%= stripePublicKey %>'
     </script>
@@ -47,7 +48,7 @@
                     </span>
                     <br><br>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    <a href = "messages" ><button type="button">Message this seller</button></a>
+                     <button onclick = "test()" type="button">Message this seller</button>
                 </div>
                 <% } %>
         </div>

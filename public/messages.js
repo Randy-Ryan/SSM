@@ -31,7 +31,7 @@ window.onload = function () {
                     email = snapshot.val().email;
                     username = snapshot.val().username;
                     document.getElementById("username").innerText = username;
-                    
+
                 } else {
                     console.log("No data available");
                 }
@@ -65,14 +65,14 @@ window.onload = function () {
 }
 
 
-function displayMessages(){
+function displayMessages() {
 
     console.log("sup");
-    
+
 
     //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
 
-    
+
 
     /*for i = 0 i < something i ++ {
 
@@ -144,10 +144,49 @@ function messageUser() {
             alert(error);
         });
 
+        if (error2 == false) {
+            // no input errors, should then log into account through firebase
+            for (var i = 0; i < requiredMessageInput.length; i++) {
+                console.log(requiredMessageInput[i].value);
+                // stance, brand, quality, size, imageURL
+                if (i == 0) {
+                    userSend = requiredMessageInput[i].value;
+                }
+                if (i == 1) {
+                    userRecieve = requiredMessageInput[i].value;
+                }
+                if (i == 2) {
+                    date = requiredMessageInput[i].value;
+                }
+                if (i == 3) {
+                    message = requiredMessageInput[i].value;
+                }
+                if (i == 4) {
+                    // messageID = "" + generateRandomNumber(1, 10000000);
+                }
+
+                var fill = "" + generateRandomNumber(1, 10000000);
+
+                firebase.database().ref('messages/' + fill).set({
+                    userSend: userSend,
+                    userRecieve: userRecieve,
+                    date: date,
+                    message: message,
+                    messageID: fill
+                }).then(function () {
+                    // route to home page and set the url params respectivly
+                    alert('successfully added to database!');
+                    window.location.href = "/messages"
+                }).catch(function (error) {
+                    // An error happened.
+                    alert(error);
+                });
+
+            }
+
+        }
     }
-
 }
-
 
 //function to check if input field is blank
 function isBlank(inputField) {
@@ -181,7 +220,6 @@ function makeClean(inputDiv) {
     inputDiv.style.backgroundColor = "#FFFFFF";
 }
 
-
 const generateRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
-};
+}

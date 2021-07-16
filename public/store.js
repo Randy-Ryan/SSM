@@ -89,32 +89,11 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
-/*function test(){
+async function test() {
 
-    var items = []
-    
-    items.push({
-        username: username
-    })
-
-    console.log(items);
-
-    fetch('/messages', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: items
-        
-    }).then(function(res) {
-        console.log(res)
-        return res.json()
-    }).catch(function(error) {
-        console.error(error)
-    })
-
-}*/
+    window.location.href = 'messages?username=' + username
+    // axios.get('http://localhost:3000/messages?username=' + username)
+}
 
 
 var stripeHandler =
@@ -136,34 +115,34 @@ var stripeHandler =
                     id: id,
                     quantity: 1
                 })
-        }
-
-        fetch('/purchase', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                stripeTokenId: token.id,
-                items: items
-            })
-        }).then(function(res) {
-            console.log(res)
-            return res.json()
-        }).then(function(data) {
-            alert(data.message)
-            var cartItems = document.getElementsByClassName('cart-items')[0]
-            while (cartItems.hasChildNodes()) {
-                cartItems.removeChild(cartItems.firstChild)
             }
-            updateCartTotal()
-        }).catch(function(error) {
-            console.error(error)
-        })
 
-    }
-})
+            fetch('/purchase', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    stripeTokenId: token.id,
+                    items: items
+                })
+            }).then(function (res) {
+                console.log(res)
+                return res.json()
+            }).then(function (data) {
+                alert(data.message)
+                var cartItems = document.getElementsByClassName('cart-items')[0]
+                while (cartItems.hasChildNodes()) {
+                    cartItems.removeChild(cartItems.firstChild)
+                }
+                updateCartTotal()
+            }).catch(function (error) {
+                console.error(error)
+            })
+
+        }
+    })
 
 function purchaseClicked() {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
