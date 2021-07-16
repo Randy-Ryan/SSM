@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 @import url("https://fonts.googleapis.com/css?family=Metal+Mania");
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,900);
-
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 @font-face {
     font-family: "Booter - Zero Zero";
@@ -12,11 +12,12 @@
 }
 
 
-* {
+/* * {
     box-sizing: border-box;
-    font-family: Raleway;
+    font-family: "Lato";
+    font-weight: 400;
     color: #777;
-}
+} */
 
 
 /* html{ */
@@ -186,6 +187,7 @@ input[type='radio']:checked:after {
 
 
 .sendButton {
+    box-sizing: border-box;
     transition: all .5s ease;
     color: #f5f7fa;
     border: 3px solid lightgray;
@@ -201,7 +203,7 @@ input[type='radio']:checked:after {
     padding-right: 125px;
     outline: none;
     border-radius: 30px;
-
+    cursor: pointer;
   }
 
   .sendButton:hover {
@@ -258,7 +260,7 @@ input[type='radio']:checked:after {
 
   /* button{} */
 
-#createListing {
+.createListing {
     background-image: linear-gradient(#b8c6db,#f5f7fa);
     background-size: 100% auto;
     border-radius: 75px; 
@@ -302,6 +304,7 @@ body {
   color: white;
   filter:none;
 }
+body 
 
 #page1 { 
   filter:none;
@@ -322,7 +325,7 @@ a {
   text-decoration: none;
   position: relative;
   display: block;
-  text-shadow: 0 1px 0 #ccc,
+  /* text-shadow: 0 1px 0 #ccc,
   0 2px 0 #c9c9c9,
   0 3px 0 #bbb,
   0 4px 0 #b9b9b9,
@@ -333,7 +336,7 @@ a {
   0 3px 5px rgba(0,0,0,.2),
   0 5px 10px rgba(0,0,0,.25),
   0 10px 10px rgba(0,0,0,.2),
-  0 20px 20px rgba(0,0,0,.15);
+  0 20px 20px rgba(0,0,0,.15); */
 }
 
 p {
@@ -505,11 +508,11 @@ html, body {
     padding-bottom: 30px;
 }
 
-.band-name {
+.header-title {
     text-align: center;
     margin: 0;
     font-size: 4em;
-    font-family: "Booter - Zero Zero";
+    font-family: "Righteous";
     font-weight: normal;
     color: white;
 }
@@ -528,7 +531,8 @@ html, body {
     padding: 0 1.5em;
 }
 .section-header {
-    font-family: "Metal Mania";
+    font-family: "Lato";
+    font-weight: 400;
     font-weight: normal;
     color: #333;
     text-align: center;
@@ -615,38 +619,6 @@ html, body {
     background-color: #2D9CDB;
 }
 
-.tour-row {
-    border-bottom: 1px solid black;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-}
-
-.tour-row:last-child {
-    border: none;
-}
-
-.tour-item {
-    display: inline-block;
-    padding-right: .5em;
-}
-
-.tour-date {
-    color: #555;
-    width: 11%;
-    font-weight: bold;
-}
-
-.tour-city {
-    width: 24%;
-}
-
-.tour-arena {
-    width: 42%;
-}
-
-.tour-btn {
-    max-width: 19%;
-}
 
 .shop-item {
     margin: 30px;
@@ -784,3 +756,7 @@ html, body {
     margin: 40px auto 80px auto;
     font-size: 1.75em;
 }
+
+/* .post {
+
+} */

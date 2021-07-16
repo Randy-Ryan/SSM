@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+.accountDisplay {
+    border: 5px solid black;
+    padding: 5%;
+    font-size: 25px;
+    margin: 5%;
+    background-color: lightgray;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p {
+    font-weight: 600;
+    font-size: 35px;
+    margin: 1px;
+    color: black;
+}
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-image: url("Images/Header_Background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+body {
+    font-family: Lato;
+    color: white;
+    filter:none;
+  }
+
+.header-title {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+    font-family: "Righteous";
+    font-weight: normal;
+    color: white;
+}
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+  }
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+.main-nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+.main-nav li {
+    display: inline;
+    padding: 0 2.5%
+}
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
