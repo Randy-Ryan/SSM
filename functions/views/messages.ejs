@@ -27,23 +27,33 @@
         </nav>
         <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
     </header>
-  <!-- <div id = "username"></div> -->
-  <section class="container content-section">
-    <h2 class="section-header">Messages</h2>
-    <div class="shop-items">
-        <% for (const message in messages) { %>
-            <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername) || (messages[message].userRecieve==theirUsername && messages[message].userSend==username)) { %>
-                <div class="message-item" data-item-id="<%= messages[message].docID %>">
-                    <span class="shop-item-title">
-                        <%- "From " + messages[message].userSend + ": to " + messages[message].userRecieve + " <br><br>" +
-                            messages[message].message + " <br><br>(Date: " + messages[message].date + ")" %>
-                    </span>
-                </div>
-                <% } %>
+    <!-- <div id = "username"></div> -->
+    <section class="container content-section">
+        <div>
+            <h2 class="section-header">Messages</h2>
+            <% for (const message in messages) { %>
+                <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername)) { %>
+                    <div class="their-message-item" data-item-id="<%= messages[message].docID %>">
+                        <span class="shop-item-title">
+                            <%- "From " + messages[message].userSend + ": to " + messages[message].userRecieve
+                                + " <br><br>" + messages[message].message + " <br><br>(Date: " + messages[message].date
+                                + ")" %>
+                        </span>
+                    </div>
                     <% } %>
-    </div>
-</section>
-<br><br><br><br>
+                        <% if((messages[message].userRecieve==theirUsername && messages[message].userSend==username)){
+                            %>
+                            <div class="my-message-item" data-item-id="<%= messages[message].docID %>">
+                                <span class="shop-item-title">
+                                    <%- "From " + messages[message].userSend + ": to " + messages[message].userRecieve
+                                        + " <br><br>" + messages[message].message + " <br><br>(Date: " +
+                                        messages[message].date + ")" %>
+                                </span>
+                            </div>
+                            <% } %>
+                                <% } %>
+    </section>
+    <br><br><br><br> <br><br><br><br>
     <section class="container content-section">
         <div class="cart-row">
             <span id="testTheirs" class="shop-item-price">
@@ -55,7 +65,8 @@
             <button onclick="messageUser()" class="messageButton" value="Send Message">SEND MESSAGE</button>
         </div>
         <br><br>
-        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">INITIATE EXCHANGE REQUEST</button>
+        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">INITIATE EXCHANGE
+            REQUEST</button>
 
         <div class="cart-items">
 
@@ -63,7 +74,7 @@
 
     </section>
 
-   
+
 </body>
 
 </html>
