@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
     apiKey: "AIzaSyDBLsz1BVWiJTB5HofoERqvW03G0ihMY5s",
     authDomain: "skateshoemate-3a12f.firebaseapp.com",
@@ -87,6 +88,34 @@ function ready() {
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
+
+/*function test(){
+
+    var items = []
+    
+    items.push({
+        username: username
+    })
+
+    console.log(items);
+
+    fetch('/messages', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: items
+        
+    }).then(function(res) {
+        console.log(res)
+        return res.json()
+    }).catch(function(error) {
+        console.error(error)
+    })
+
+}*/
+
 
 var stripeHandler =
     StripeCheckout.configure({
