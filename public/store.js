@@ -89,9 +89,11 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
-async function test() {
+async function test(test) {
 
-    window.location.href = 'messages?username=' + username
+    console.log(test)
+
+    window.location.href = 'messages?username=' + username + '&theirUsername=' + test
     // axios.get('http://localhost:3000/messages?username=' + username)
 }
 
@@ -217,4 +219,12 @@ function updateCartTotal() {
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+}
+
+
+function testCheckout() {
+    //load the shipping page
+
+
+    
 }

@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
-        <title>The Generics | About</title>
-        <meta name="description" content="This is the description">
-        <link rel="stylesheet" href="styles.css" />
-        <script src="./account.js"></script>
 
-    </head>
-    <body>
-        <header class="main-header">
-            <nav class="nav main-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="store">STORE</a></li>
-                    <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <title>The Generics | About</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./account.js"></script>
+
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="nav main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="store">STORE</a></li>
+                <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
                 <li><a href="post.html" id="postRef">NEW POST</a></li>
-            </nav>
-            <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
-        </header>
+        </nav>
+        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+    </header>
 
-        <section class="content-section container">
-            <h2 class="section-header">My Account Page</h2>
-        </section>
-                <!-- FULL ACCOUNT PAGE -->
-                <div id="accountPage" style="text-align: center; display: none;">
-                    <p id="usernameDisplay" class="accountDisplay"></p>
-                    <p id="emailDisplay" class="accountDisplay"></p>
-                    <!-- This text will change once the db command is finished executing. This can be buggy sometimes - implementation needs work -->
-                    <p id="idDisplay" class="accountDisplay">Getting user ID from database...</p>
-        
-                    <br>
-                    <div style="text-align: center;">
-                        <button class="sendButton" id="signoutButton" onclick="signOut()">Sign Out</button>
-                    </div>
-        
-                </div>
-    </body>
+    <section class="content-section container">
+        <h2 class="section-header">My Account Page</h2>
+    </section>
+    <!-- FULL ACCOUNT PAGE -->
+    <div id="accountPage" style="text-align: center; display: none;">
+        <p id="usernameDisplay" class="accountDisplay"></p>
+        <p id="emailDisplay" class="accountDisplay"></p>
+        <!-- This text will change once the db command is finished executing. This can be buggy sometimes - implementation needs work -->
+        <p id="idDisplay" class="accountDisplay">Getting user ID from database...</p>
+
+        <br>
+        <div style="text-align: center;">
+            <button class="sendButton" id="signoutButton" onclick="signOut()">Sign Out</button>
+        </div>
+
+        <br><br> <br><br> <br><br> <br><br>
+
+
+        <h2> ALL MY SHOE POSTS:</h2>
+        <div id="postFeed">
+
+        </div>
+
+
+        <h2> ALL MY MESSAGES:</h2>
+        <div id="messageFeed">
+
+        </div>
+
+    </div>
+</body>
+
 </html>
