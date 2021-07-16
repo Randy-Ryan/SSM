@@ -103,7 +103,7 @@ window.onload = function () {
                     message = requiredMessageInput[i].value;
                 }
                 if (i == 4) {
-                    messageID = "" + generateRandomNumber(1, 10000000);
+                    // messageID = "" + generateRandomNumber(1, 10000000);
                 }
 
                 var fill = "" + generateRandomNumber(1, 10000000);
@@ -113,7 +113,7 @@ window.onload = function () {
                     userRecieve: userRecieve,
                     date: date,
                     message: message,
-                    messageID: messageID
+                    messageID: fill
                 }).then(function () {
                     // route to home page and set the url params respectivly
                     alert('successfully added to database!');
