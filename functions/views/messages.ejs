@@ -10,6 +10,7 @@
     <title>Messages</title>
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="messages.js" defer></script>
 </head>
 
@@ -33,6 +34,7 @@
     <section class="container content-section">
         <h2 class="section-header">Message a User</h2>
         <div class="cart-row">
+            <input onclick="displayMessages()" class="messageButton" value="Send Message">
             <label>Enter a Username</label><br>
                     <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredMessageInput"
                         class="requiredRegister"
@@ -45,11 +47,27 @@
                     <input type="text" id="message" onclick="makeClean(document.getElementById('message'))" name="Message" id="message" class="requiredMessageInput"
                         class="requiredRegister"
                         style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
-            <input onclick="messageUser()" class="messageButton" value="Send Message">
+           <input onclick="messageUser()" class="messageButton" value="Send Message">
             
         </div>
         <div class="cart-items">
             
+        </div>
+
+    </section>
+    <!-- <div id = "username"></div> -->
+    <section class="container content-section">
+        <h2 class="section-header">Your Messages</h2>
+        <div class="shop-items"> 
+            <% for (const message in messages) { %>
+                <% if(messages[message].userRecieve == username) { %>
+                <div class="message-item" data-item-id="<%= messages[message].docID %>">
+                    <span class="shop-item-title">
+                        <%- messages[message].userRecieve + " date " + messages[message].date +  " | " + messages[message].message %>
+                    </span>
+                </div>
+                <% } %>
+            <% } %>
         </div>
     </section>
 </body>

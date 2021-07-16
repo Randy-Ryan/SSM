@@ -18,6 +18,8 @@ var username = "";
 var email = "";
 const dbRef = firebase.database().ref();
 
+
+
 // on page load check if user is signed in - style respectivly
 window.onload = function () {
 
@@ -28,6 +30,8 @@ window.onload = function () {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
                     username = snapshot.val().username;
+                    document.getElementById("username").innerText = username;
+
                 } else {
                     console.log("No data available");
                 }
@@ -59,31 +63,86 @@ window.onload = function () {
         }
     });
 }
-    function messageUser() {
 
-        var error = false;
-        var error2 = false;
 
-        var requiredMessageInput = document.querySelectorAll(".requiredMessageInput");
+function displayMessages() {
 
+    console.log("sup");
+
+
+    //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
+
+
+
+    /*for i = 0 i < something i ++ {
+
+        if message.userrecieved == username
+
+            display message
+    }*/
+}
+function messageUser() {
+
+    var error = false;
+    var error2 = false;
+
+    var requiredMessageInput = document.querySelectorAll(".requiredMessageInput");
+
+    for (var i = 0; i < requiredMessageInput.length; i++) {
+        error = false;
+        // console.log(requiredMessageInput.length);
+        // if blank input, prevent form submission
+        // make input fields red and set error to true
+        if (isBlank(requiredMessageInput[i])) {
+            // e.preventDefault();
+            makeRed(requiredMessageInput[i]);
+            error = true;
+            error2 = true;
+            console.log("error 1");
+        }
+        // make input field normal if no error
+        // usage when first case is error, but second is not
+        if (error == false) {
+            makeClean(requiredMessageInput[i]);
+        }
+    }
+
+    if (error2 == false) {
+        // no input errors, should then log into account through firebase
         for (var i = 0; i < requiredMessageInput.length; i++) {
-            error = false;
-            // console.log(requiredMessageInput.length);
-            // if blank input, prevent form submission
-            // make input fields red and set error to true
-            if (isBlank(requiredMessageInput[i])) {
-                // e.preventDefault();
-                makeRed(requiredMessageInput[i]);
-                error = true;
-                error2 = true;
-                console.log("error 1");
+            console.log(requiredMessageInput[i].value);
+            // stance, brand, quality, size, imageURL
+            if (i == 0) {
+                userRecieve = requiredMessageInput[i].value;
+                console.log(userRecieve);
             }
-            // make input field normal if no error
-            // usage when first case is error, but second is not
-            if (error == false) {
-                makeClean(requiredMessageInput[i]);
+            if (i == 1) {
+                date = requiredMessageInput[i].value;
+                console.log(date);
+            }
+            if (i == 2) {
+                message = requiredMessageInput[i].value;
+                console.log(message);
             }
         }
+        userSend = username;
+
+        var fill = "" + generateRandomNumber(1, 10000000);
+
+        firebase.database().ref('messages/' + fill).set({
+            userRecieve: userRecieve,
+            date: date,
+            message: message,
+            userSend: userSend,
+            messageID: fill
+        }).then(function () {
+            // route to home page and set the url params respectivly
+            alert('successfully added to database!');
+            window.location.href = "/messages"
+        }).catch(function (error) {
+            // An error happened.
+            alert(error);
+        });
 
         if (error2 == false) {
             // no input errors, should then log into account through firebase
@@ -127,8 +186,9 @@ window.onload = function () {
 
         }
     }
+}
 
-    //function to check if input field is blank
+//function to check if input field is blank
 function isBlank(inputField) {
     //checks for empty checkbox
     if (inputField.type === "checkbox") {
@@ -160,7 +220,6 @@ function makeClean(inputDiv) {
     inputDiv.style.backgroundColor = "#FFFFFF";
 }
 
-
 const generateRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
-};
+}
