@@ -63,15 +63,33 @@ app.use(express.static('../public'))
 
 
 // });
+/*
+app.get('/store', (req, res) => {
+    shoes.on('value', (snapshot) => {
+        const data = snapshot.val();
+        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
+        
+        res.render('store.ejs', {
+            stripePublicKey: stripePublicKey,
+            items: snapshot.val().shoes
+        })
+    });
+})*/
 
 app.get('/messages', (req, res) => {
 
+   
+    console.log( req.params.username);
+
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
-        console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
+        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
         
         res.render('messages.ejs', {
-            users: snapshot.val().users
+            messages: snapshot.val().messages,
+            username: "k"
+            //username: snapshot.val()
+            
         })
     });
  
@@ -82,7 +100,7 @@ app.get('/messages', (req, res) => {
 app.get('/store', (req, res) => {
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
-        console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
+        //console.log(data.users['4mS0tNjZF9eMey1Ya6dfFJ3aMfN2'].userID);
         
         res.render('store.ejs', {
             stripePublicKey: stripePublicKey,
