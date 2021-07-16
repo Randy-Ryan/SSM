@@ -48,7 +48,8 @@
                     </span>
                     <br><br>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                     <button onclick = "test()" type="button">Message this seller</button>
+                    <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
+                     <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
                 </div>
                 <% } %>
         </div>

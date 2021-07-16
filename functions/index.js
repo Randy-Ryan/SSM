@@ -81,10 +81,10 @@ app.get('/messages', (req, res) => {
         console.log(params2["username"])
         res.render('messages.ejs', {
             messages: snapshot.val().messages,
-            username: params2["username"]
+            username: params2["username"],
+            theirUsername: params2["theirUsername"]
         })
     });
- 
 })
 
 // app.get('/messages', (req, res) => {
