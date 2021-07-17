@@ -30,8 +30,45 @@
         </nav>
         <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
     </header>
+<br>
     <section class="container content-section">
+        <br>
+        <input type="text" placeholder="Search by keyword..">
+        <br> <br>
+        Filters<br>
+        <select name="stanceCategory" id="stanceFilters">
+            <option>Stance</option>
+            <option></option>
+            <option value="goofy">GOOFY</option>
+            <option value="regular">REGULAR</option>
+          </select>
+          <select name="sizeCategory" id="sizeFilters">
+            <option>Size</option>
+            <option></option>
+            <option value="size9">9</option>
+            <option value="size95">9.5</option>
+            <option value="size10">10</option>
+            <option value="size105">10.5</option>
+          </select>
+          <select name="qualityCategory" id="qualityFilters">
+            <option>Quality</option>
+            <option></option>
+            <option value="quality">Perfect</option>
+            <option value="quality">Good</option>
+            <option value="quality">Fair</option>
+            <option value="quality">Poor</option>
+          </select>
+          <select name="priceCategory" id="priceFilters">
+            <option>Price</option>
+            <option></option>
+            <option value="quality">Less than $10</option>
+            <option value="quality">Between $10 and $20</option>
+            <option value="quality">More than $20</option>
+          </select>
+          <br><br>
+          <button onclick = "applyFilters()" id="applyFilters">Apply filters</button>
         <h2 class="section-header">Shoe Listings</h2>
+
         <div class="shop-items">
             <% for (const item in items) { %>
                 <div class="shop-item" data-item-id="<%= items[item].docID %>">

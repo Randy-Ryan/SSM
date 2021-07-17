@@ -53,22 +53,22 @@ app.use(express.static('../public'))
 
 // const path = require('path')
 
-exports.store = functions.https.onRequest((req, res) => {
-    console.log("hey")
-    res.set('Access-Control-Allow-Origin', '*');
+// exports.store = functions.https.onRequest((req, res) => {
+//     console.log("hey")
+//     res.set('Access-Control-Allow-Origin', '*');
 
-    if (req.method === 'OPTIONS') {
-        // Send response to OPTIONS requests
-        res.set('Access-Control-Allow-Methods', 'GET');
-        res.set('Access-Control-Allow-Headers', 'Content-Type');
-        res.set('Access-Control-Max-Age', '3600');
-        res.status(204).send('');
-      } else {
-        console.log("lol")
+//     if (req.method === 'OPTIONS') {
+//         // Send response to OPTIONS requests
+//         res.set('Access-Control-Allow-Methods', 'GET');
+//         res.set('Access-Control-Allow-Headers', 'Content-Type');
+//         res.set('Access-Control-Max-Age', '3600');
+//         res.status(204).send('');
+//       } else {
+//         console.log("lol")
 
-    }``
+//     }``
 
-})
+// })
 
 
 // });
@@ -110,19 +110,14 @@ app.get('/checkout', (req, res) => {
 })
 
 app.post('/purchase', function (req, res) {
-
-
     shoes.on('value', (snapshot) => {
         const itemsArray = snapshot.val().shoes
-
         let total = 0
-
         req.body.items.forEach(function (item) {
             const itemJson = itemsArray[parseInt(item.id)];
             total = total + itemJson.price
         })
-
-
+        
         stripe.charges.create({
             amount: total,
             source: req.body.stripeTokenId,

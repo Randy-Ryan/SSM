@@ -50,10 +50,13 @@
                                         messages[message].date + ")" %>
                                 </span>
                             </div>
+                            
                             <% } %>
                                 <% } %>
+        </div>
     </section>
-    <br><br><br><br> <br><br><br><br>
+    <br><br><br><br> <br><br><br><br>    <br><br><br><br> <br><br><br><br>
+
     <section class="container content-section">
         <div class="cart-row">
             <span id="testTheirs" class="shop-item-price">
@@ -65,8 +68,7 @@
             <button onclick="messageUser()" class="messageButton" value="Send Message">SEND MESSAGE</button>
         </div>
         <br><br>
-        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">INITIATE EXCHANGE
-            REQUEST</button>
+        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">  <%- "INITIATE AN EXCHANGE REQUEST WITH " + theirUsername %></button>
 
         <div class="cart-items">
 
