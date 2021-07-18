@@ -73,6 +73,18 @@ app.use(express.static('../public'))
 
 // });
 
+app.get('/ratings', (req, res) => {
+
+    var params2 = req.query;
+    shoes.on('value', (snapshot) => {
+        const data = snapshot.val();
+        res.render('ratings.ejs', {
+            username: params2["username"],
+            theirUsername: params2["theirUsername"]
+        })
+    });
+})
+
 app.get('/messages', (req, res) => {
 
     var params2 = req.query;

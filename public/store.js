@@ -67,6 +67,8 @@ function userIsSignedOut() {
 }
 
 
+
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -87,6 +89,15 @@ function ready() {
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function ratingFunction(){
+
+    //let test = propmt("This is a test: ", "");
+
+    window.location.href = 'ratings'
+
+
 }
 
 async function test(test) {

@@ -53,6 +53,29 @@ window.onload = function () {
                 console.error(error);
             });
 
+            var overallRating;
+
+            dbRef.child("ratings").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists()) {
+                        if (doc.val().userRecieve == username){
+                            document.getElementById("ratingsFeed").innerHTML += "From: " + doc.val().userSend +" | Rating: "+ doc.val().rating + " | Comment: " + doc.val().comment + "<br><br>"
+                            parse = parseInt(doc.val().rating);
+                            console.log(parse);
+                            
+                            overallRating = parse + overallRating;
+                            document.getElementById("overallRating").innerHTML = "Overall rating: " + overallRating;
+                        }
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+            }).catch((error) => {
+                console.error(error);
+            });
+
+            
+
             dbRef.child("shoes").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {

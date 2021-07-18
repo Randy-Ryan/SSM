@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+    <title>Messages</title>
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="ratings.js" defer></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-nav nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="store">STORE</a></li>
+                <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+                <li><a href="post.html" id="postRef">NEW POST</a></li>
+
+            </ul>
+        </nav>
+        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+    </header>
+    <section class="container content-section">
+        <h2 class="section-header">Ratings</h2>
+      
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header">Please leave a rating</h2>
+        <div class="cart-row">
+            <input onclick="testc()" class="ratingsButton" value="Send Message">
+            <label>Enter a Username</label><br>
+                    <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredRatingInput"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+            <label>Select a Rating</label><br>
+            <select onclick = "makeClean(document.getElementById('ratingInput'))"name = "rating" id = "ratingInput" class="requiredRatingInput">
+                    <option disabled selected value> -- select an option -- </option>
+                        <option value="1">1 Horrible</option>
+                        <option value="2">2 Bad</option>
+                        <option value="3">3 Ok</option>
+                        <option value="4">4 Great</option>
+                        <option value="5">5 Perfect</option>
+                        </select><br><br>
+            <label>Leave a Comment</label>
+            <input type="text" id="userRating" onclick="makeClean(document.getElementById('userRating'))" name="user_comment" id ="userComment" class="requiredRatingInput"
+                        class="requiredRegister"
+                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
+
+            
+        </div>
+       
+  
+</body>
+
+</html>

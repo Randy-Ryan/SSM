@@ -86,6 +86,20 @@
                     <br><br>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                     <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
+                    <button onclick="ratingFunction()" type="button">Rate This User</button>
+                    <!-- <script>
+                        function ratingFunction(){
+                            let test = prompt("Please Add a Comment About this User: ", "")
+                            let text = "";
+
+                            text = test;
+
+                            let test2 = prompt("Thank you for your feedback! This is what you wrote, are you sure you want to send?", text)
+
+
+                        }
+                    </script> -->
+    
                      <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
                 </div>
                 <% } %>
