@@ -373,6 +373,14 @@ p {
 }
 
 
+.their-message-item{
+  float: left;
+}
+
+.my-message-item{
+  float: right;
+
+}
 
 /* Style the navigation menu */
 .topnav {

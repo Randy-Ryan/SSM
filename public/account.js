@@ -35,6 +35,60 @@ window.onload = function () {
             }).catch((error) => {
                 console.error(error);
             });
+
+            dbRef.child("messages").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists()) {
+                        if (doc.val().userSend == username){
+                            document.getElementById("messageFeed").innerHTML += "To: " + doc.val().userRecieve +" | "+doc.val().message + "<br><br>"
+                        }
+                        if (doc.val().userReceive == username){
+                            document.getElementById("messageFeed").innerHTML += "From: " +doc.val().userSend +" | "+ doc.val().message + "<br><br>"
+                        }
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+            }).catch((error) => {
+                console.error(error);
+            });
+
+            var overallRating;
+
+            dbRef.child("ratings").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists()) {
+                        if (doc.val().userRecieve == username){
+                            document.getElementById("ratingsFeed").innerHTML += "From: " + doc.val().userSend +" | Rating: "+ doc.val().rating + " | Comment: " + doc.val().comment + "<br><br>"
+                            parse = parseInt(doc.val().rating);
+                            console.log(parse);
+                            
+                            overallRating = parse + overallRating;
+                            document.getElementById("overallRating").innerHTML = "Overall rating: " + overallRating;
+                        }
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+            }).catch((error) => {
+                console.error(error);
+            });
+
+            
+
+            dbRef.child("shoes").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists()) {
+                        if (doc.val().username == username){
+                            document.getElementById("postFeed").innerHTML += doc.val().brand +" | Size "+doc.val().size + "<br><br>"
+                        }
+                    } else {
+                        console.log("No data available");
+                    }
+                })
+            }).catch((error) => {
+                console.error(error);
+            });
             // set global vars to use for this user
 
             // username = user.displayName;
@@ -88,6 +142,6 @@ function userIsSignedOut() {
 
     //show login page % hide the rest
 
-    window.location.href= "./index.html"
+    window.location.href = "./index.html"
     //shouldnt be the case so route to home
 }
