@@ -47,13 +47,13 @@ window.onload = function () {
             // will add more hides here
             document.getElementById("loginPage").style.display = "none";
             document.getElementById("registerPage").style.display = "none";
-            document.getElementById("postRef").style.display = "";
-            document.getElementById("accountRef").style.display = "";
+            //document.getElementById("postRef").style.display = "";
+            //document.getElementById("accountRef").style.display = "";
 
         } else {
             // User is signed out
-            document.getElementById("postRef").style.display = "none";
-            document.getElementById("accountRef").style.display = "none";
+            //document.getElementById("postRef").style.display = "none";
+            //document.getElementById("accountRef").style.display = "none";
             userIsSignedOut();
         }
     });
