@@ -23,7 +23,7 @@
         <nav class="main-nav nav">
             <ul>
                 <h1 class="header-title">
-                    <a href="index.html">SKATE SHOE MATE</a>
+                    <a class="title" href="index.html">SKATE SHOE MATE</a>
                 </h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store">STORE</a></li>
@@ -71,7 +71,7 @@
           <button onclick = "applyFilters()" id="applyFilters">Apply filters</button>
         <h2 class="section-header">Shoe Listings</h2>
 
-        <div class="shop-items">
+        <div class="shop-container">
             <% for (const item in items) { %>
                 <div class="shop-item" data-item-id="<%= items[item].docID %>">
                     <span class="shop-item-title">
@@ -86,9 +86,12 @@
                         $<%= items[item].price / 100 %>
                     </span>
                     <br><br>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
-                    <button onclick="ratingFunction()" type="button">Rate This User</button>
+                    <span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                        <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
+                        <button onclick="ratingFunction()" type="button">Rate This User</button>
+                    </span>
+
                     <!-- <script>
                         function ratingFunction(){
                             let test = prompt("Please Add a Comment About this User: ", "")
