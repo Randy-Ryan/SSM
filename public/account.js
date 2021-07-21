@@ -40,7 +40,7 @@ window.onload = function () {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
                         if (doc.val().userSend == username){
-                            document.getElementById("messageFeed").innerHTML += "To: " + doc.val().userRecieve +" | "+doc.val().message + "<br><br>"
+                            document.getElementById("messageFeed").innerHTML += "<span class='toMSG'>To: " + doc.val().userRecieve +" | "+doc.val().message + "</span>"
                         }
                         if (doc.val().userReceive == username){
                             document.getElementById("messageFeed").innerHTML += "From: " +doc.val().userSend +" | "+ doc.val().message + "<br><br>"
@@ -59,7 +59,7 @@ window.onload = function () {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
                         if (doc.val().userRecieve == username){
-                            document.getElementById("ratingsFeed").innerHTML += "From: " + doc.val().userSend +" | Rating: "+ doc.val().rating + " | Comment: " + doc.val().comment + "<br><br>"
+                            document.getElementById("ratingsFeed").innerHTML += "<span class='feedChild'>From: " + doc.val().userSend +" | Rating: "+ doc.val().rating + "/5 | Comment: " + doc.val().comment + "</span>"
                             parse = parseInt(doc.val().rating);
                             console.log(parse);
                             
@@ -80,7 +80,7 @@ window.onload = function () {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
                         if (doc.val().username == username){
-                            document.getElementById("postFeed").innerHTML += doc.val().brand +" | Size "+doc.val().size + "<br><br>"
+                            document.getElementById("postFeed").innerHTML += "<span class='feedChild'" + doc.val().brand +" | Size "+doc.val().size + "<br><br>"
                         }
                     } else {
                         console.log("No data available");

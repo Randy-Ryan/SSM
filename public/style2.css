@@ -7,9 +7,9 @@
 }
 .accountDisplay {
     border: 5px solid black;
-    padding: 5%;
+    padding: 1%;
     font-size: 25px;
-    margin: 5%;
+    margin: 1%;
     background-color: lightgray;
     color: black;
     display: flex;
@@ -22,6 +22,25 @@ p {
     margin: 1px;
     color: black;
 }
+.feed {
+    font-size: 1.2rem;
+    background-color: beige;
+    border: 3px solid darkgray;
+    display: grid;
+}
+.feedChild {
+    text-align: left;
+}
+.toMSG {
+    text-align: left;
+    border-bottom: 1px solid darkgray;
+
+}
+.fromMSG {
+    text-align: right;
+    border-bottom: 1px solid darkgray;
+
+}
 .main-header {
     background-color: rgba(0, 0, 0, .6);
     background-image: url("Images/Header Background.jpg");
@@ -31,7 +50,7 @@ p {
 }
 body {
     font-family: Lato;
-    color: white;
+    color: black;
     filter:none;
   }
 
@@ -101,6 +120,10 @@ body {
     /* padding-left: 2em; */
     /* padding-right: 2em; */
 
+}
+.section-header {
+    text-align: center;
+    font-size: 2rem;
 }
 
 .sendButton {

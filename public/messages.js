@@ -162,7 +162,7 @@ function initExchange() {
 
     theirUsername = document.getElementById("testTheirs").innerText.slice(3)
         var fill = "" + generateRandomNumber(1, 10000000);
-        message = "WOULD YOU LIKE TO ACCEPT MY SKATE SHOE EXCHANGE OFFER? <button onclick = 'acceptExchange("+fill+")' > YES</button><br><button> NO</button>"
+        message = "WOULD YOU LIKE TO ACCEPT MY SKATE SHOE EXCHANGE OFFER? <button onclick = 'acceptExchange("+fill+")' > YES</button><button> NO</button>"
 
         firebase.database().ref('exchanges/' + fill).set({
             userRecieve: theirUsername,
