@@ -34,7 +34,7 @@
     </header>
 <br>
     <section class="container content-section">
-        <br>
+        <div style="padding: 5px;" class="shadow border">
         <input type="text" placeholder="Search by keyword..">
         <br> <br>
         Filters<br>
@@ -69,11 +69,12 @@
           </select>
           <br><br>
           <button onclick = "applyFilters()" id="applyFilters">Apply filters</button>
+          </div>
         <h2 class="section-header">Shoe Listings</h2>
 
         <div class="shop-container">
             <% for (const item in items) { %>
-                <div class="shop-item" data-item-id="<%= items[item].docID %>">
+                <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
                     <span class="shop-item-title">
                         <%- items[item].brand + " size " + items[item].size +  " | " + items[item].username %>
                     </span>

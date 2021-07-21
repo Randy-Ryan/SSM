@@ -29,17 +29,26 @@ p {
 }
 .toMSG {
     text-align: left;
-    border-bottom: 1px solid darkgray;
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
 }
 .fromMSG {
     text-align: right;
-    border-bottom: 1px solid darkgray;
-
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    padding: 5px;
+    padding-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .main-header {
     background-color: rgba(0, 0, 0, .6);
-    background-image: url("Images/Header Background.jpg");
+    background-image: url("Images/stock-pastel-bg.jpg");
     background-blend-mode: multiply;
     background-size: cover;
     /* padding-bottom: 30px; */
@@ -48,10 +57,12 @@ body {
     font-family: Lato;
     color: black;
     filter:none;
+    background-color: #FFF0FF;
+    
   }
 
   .createListing {
-    background-image: linear-gradient(#b8c6db,#f5f7fa);
+    background-image: linear-gradient(#913347,#FFF0FF);
     background-size: 100% auto;
     border-radius: 75px; 
     border: 1px solid black; 
@@ -71,9 +82,13 @@ body {
     color: white;
 }
 .shadow {
-    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.8);
   }
 
+.border {
+    border-radius: 10px;
+    border: 1px solid black;
+}
 .main-nav {
     text-align: center;
     font-size: 1.1em;
@@ -177,6 +192,7 @@ body {
     border: none;
     border-radius: .3em;
     font-weight: bold;
+    margin-bottom: 5px;
   }
 
   .btn-primary:hover {
@@ -186,15 +202,14 @@ body {
   .shop-item {
     max-height: 400px;
     padding-bottom: 50px;
-    background-color: lightcoral;
-    margin: 1%;
+    background-color: #FFFFEA;
+    margin: 1.5%;
     padding-left: 10%;
 }
 
 .shop-container {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    margin: 1%;
 }
 
 .shop-item-title {

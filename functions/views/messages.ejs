@@ -30,7 +30,7 @@
         </nav>
     </header>
     <!-- <div id = "username"></div> -->
-    <section class="container content-section">
+    <section class="border container content-section">
         <div>
             <h2 class="section-header">Messages</h2>
             <% for (const message in messages) { %>
@@ -67,10 +67,10 @@
             <input type="text" id="message" onclick="makeClean(document.getElementById('message'))" name="Message"
                 class="requiredMessageInput"
                 style="width: 50%; height: 35px; border: 1px solid black; color: black;"><br><br>
-            <button onclick="messageUser()" class="messageButton" value="Send Message">SEND MESSAGE</button>
+            <button style="margin-left: 5px;" onclick="messageUser()" class="btn btn-primary" value="Send Message">SEND MESSAGE</button>
         </div>
         <br><br>
-        <button onclick="initExchange()" class="exchangeButton" style="padding: 3%; width: 50%;">  <%- "INITIATE AN EXCHANGE REQUEST WITH " + theirUsername %></button>
+        <button onclick="initExchange()" class="btn btn-primary" style="padding: 3%;">  <%- "INITIATE AN EXCHANGE REQUEST WITH " + theirUsername %></button>
 
         <div class="cart-items">
 
