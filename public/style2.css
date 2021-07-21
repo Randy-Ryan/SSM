@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5em;
-}
+
 .accountDisplay {
     border: 5px solid black;
     padding: 1%;
@@ -188,12 +184,22 @@ body {
   }
 
   .shop-item {
-    margin: 10px;
+    max-height: 400px;
+    padding-bottom: 50px;
+    background-color: lightcoral;
+    margin: 1%;
+    padding-left: 10%;
+}
+
+.shop-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin: 1%;
 }
 
 .shop-item-title {
-    display: block;
-    width: 100%;
+
+    max-width: 100%;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
@@ -203,10 +209,11 @@ body {
 
 .shop-item-image {
     height: 250px;
+    max-width: 90%;
 }
 
 .shop-item-details {
-    display: flex;
+    display: block;
     align-items: center;
     padding: 5px;
 }

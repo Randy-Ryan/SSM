@@ -43,7 +43,7 @@ window.onload = function () {
                             document.getElementById("messageFeed").innerHTML += "<span class='toMSG'>To: " + doc.val().userRecieve +" | "+doc.val().message + "</span>"
                         }
                         if (doc.val().userReceive == username){
-                            document.getElementById("messageFeed").innerHTML += "From: " +doc.val().userSend +" | "+ doc.val().message + "<br><br>"
+                            document.getElementById("messageFeed").innerHTML += "<span class='fromMSG'>From: " +doc.val().userSend +" | "+ doc.val().message + "<br><br>"
                         }
                     } else {
                         console.log("No data available");
@@ -80,7 +80,7 @@ window.onload = function () {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
                         if (doc.val().username == username){
-                            document.getElementById("postFeed").innerHTML += "<span class='feedChild'" + doc.val().brand +" | Size "+doc.val().size + "<br><br>"
+                            document.getElementById("postFeed").innerHTML += "<span class='feedChild'>" + doc.val().brand +" | Size "+doc.val().size + "</span>"
                         }
                     } else {
                         console.log("No data available");

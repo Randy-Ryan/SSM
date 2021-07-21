@@ -49,7 +49,7 @@ window.onload = function () {
 
             // hide login/register pages
             // will add more hides here
-            document.getElementById("postRef").style.display = "";
+            //document.getElementById("postRef").style.display = "";
             document.getElementById("accountRef").style.display = "";
 
 
@@ -57,7 +57,7 @@ window.onload = function () {
 
         } else {
             // User is signed out
-            document.getElementById("postRef").style.display = "none";
+            //document.getElementById("postRef").style.display = "none";
             document.getElementById("accountRef").style.display = "none";
             userIsSignedOut();
         }

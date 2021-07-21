@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <title>Messages</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./style2.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="ratings.js" defer></script>
 </head>
@@ -18,6 +18,9 @@
     <header class="main-header">
         <nav class="main-nav nav">
             <ul>
+                <h1 class="header-title">
+                    <a style="font-size: 4rem" class="title" href="index.html">SKATE SHOE MATE</a>
+                </h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store">STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
@@ -25,7 +28,6 @@
 
             </ul>
         </nav>
-        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
     </header>
     <section class="container content-section">
         <h2 class="section-header">Ratings</h2>
@@ -33,7 +35,7 @@
     </section>
     <section class="container content-section">
         <h2 class="section-header">Please leave a rating</h2>
-        <div class="cart-row">
+        <div class="feed">
             <input onclick="testc()" class="ratingsButton" value="Send Message">
             <label>Enter a Username</label><br>
                     <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredRatingInput"

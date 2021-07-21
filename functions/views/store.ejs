@@ -86,10 +86,10 @@
                         $<%= items[item].price / 100 %>
                     </span>
                     <br><br>
-                    <span>
+                    <span class="shop-item-details">
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                         <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
-                        <button onclick="ratingFunction()" type="button">Rate This User</button>
+                        <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This User</button>
                     </span>
 
                     <!-- <script>
