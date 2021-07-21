@@ -47,14 +47,14 @@ window.onload = function () {
             // hide login/register pages
             // will add more hides here
             document.getElementById("postRef").style.display = "";
-            document.getElementById("accountRef").style.display = "";
+            //document.getElementById("accountRef").style.display = "";
 
             //load account page for now - should load home page
 
         } else {
             // User is signed out
             document.getElementById("postRef").style.display = "none";
-            document.getElementById("accountRef").style.display = "none";
+            //document.getElementById("accountRef").style.display = "none";
             userIsSignedOut();
         }
     });

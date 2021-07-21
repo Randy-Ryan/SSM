@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <title>Skate Shoe Mate | Store</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./style2.css" />
     <script src="https://checkout.stripe.com/checkout.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -22,13 +22,15 @@
     <header class="main-header">
         <nav class="main-nav nav">
             <ul>
+                <h1 class="header-title">
+                    <a class="title" href="index.html">SKATE SHOE MATE</a>
+                </h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store">STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
-                <li><a href="post.html" id="postRef">NEW POST</a></li>
+                <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
             </ul>
         </nav>
-        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
     </header>
 <br>
     <section class="container content-section">
@@ -69,7 +71,7 @@
           <button onclick = "applyFilters()" id="applyFilters">Apply filters</button>
         <h2 class="section-header">Shoe Listings</h2>
 
-        <div class="shop-items">
+        <div class="shop-container">
             <% for (const item in items) { %>
                 <div class="shop-item" data-item-id="<%= items[item].docID %>">
                     <span class="shop-item-title">
@@ -84,9 +86,12 @@
                         $<%= items[item].price / 100 %>
                     </span>
                     <br><br>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
-                    <button onclick="ratingFunction()" type="button">Rate This User</button>
+                    <span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                        <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
+                        <button onclick="ratingFunction()" type="button">Rate This User</button>
+                    </span>
+
                     <!-- <script>
                         function ratingFunction(){
                             let test = prompt("Please Add a Comment About this User: ", "")

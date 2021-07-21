@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <title>Skate Shoe Mate</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style2.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./index.js"></script>
 
@@ -22,15 +22,16 @@
     <header class="main-header">
         <nav class="nav main-nav">
             <ul>
+                <h1 class="header-title">SKATE SHOE MATE</h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store">STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
-                <li><a href="post.html" id="postRef">NEW POST</a></li>
+                <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
             </ul>
         </nav>
-        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
+
         <div class="container">
-            <button type="button" class="btn btn-header">Welcome to our website! Checkout the shop page to browse skate
+            <button style="color: white; margin: 2em 15% 2em 15%" type="button" class="btn">Welcome to our website! Checkout the shop page to browse skate
                 shoes</button>
         </div>
     </header>
@@ -61,9 +62,9 @@
                     <label>Enter your password</label><br>
                     <input type="password" id="password" onclick="makeClean(document.getElementById('password'))"
                         name="user_password" class="requiredLogin"
-                        style="width: 50%; height: 35px; border: 1px solid black;margin-top: 2%;color: black;"><br><br>
-                    <br><br>
-                    <input onclick="signIn()" class="sendButton" value="LOGIN">
+                        style="width: 50%; height: 35px; border: 1px solid black;margin-top: 2%;color: black;">
+                    <input onclick="signIn()" class="sendButton" value="LOGIN">LOGIN</input>
+                    <!-- <button type="button" onClick="console.log('login button has been clicked')" onSubmit="return true" class="sendButton" value="LOGIN">LOGIN</button> -->
                 </form>
             </div>
         </div>

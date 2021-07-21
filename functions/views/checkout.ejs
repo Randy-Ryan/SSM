@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <title>Checkout</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./style2.css" />
 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -20,14 +20,16 @@
     <header class="main-header">
         <nav class="main-nav nav">
             <ul>
+              <h1 class="header-title">
+                <a class="title" href="index.html">SKATE SHOE MATE</a>
+            </h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store">STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
-                <li><a href="post.html" id="postRef">NEW POST</a></li>
+                <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
 
             </ul>
         </nav>
-        <h1 class="band-name band-name-large">SKATE SHOE MATE</h1>
     </header>
   <!-- <div id = "username"></div> -->
   <section class="container content-section">
@@ -98,11 +100,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    body {
-      font-family: Arial;
-      font-size: 17px;
-      padding: 8px;
-    }
+
     
     * {
       box-sizing: border-box;
@@ -230,10 +228,10 @@
                     <input type="text" id="zip" name="zip" placeholder="10001">
                   </div>
                 </div>
+                <label>
+                  <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                </label>
               </div>
-            <label>
-              <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-            </label>
             <input type="submit" value="Continue to checkout" class="btn">
           </form>
         </div>
