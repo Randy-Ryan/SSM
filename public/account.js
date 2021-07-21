@@ -53,7 +53,7 @@ window.onload = function () {
                 console.error(error);
             });
 
-            var overallRating;
+            var overallRating = 0;
 
             dbRef.child("ratings").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
