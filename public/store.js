@@ -53,7 +53,7 @@ window.onload = function () {
 
         } else {
             // User is signed out
-            document.getElementById("postRef").style.display = "none";
+            // document.getElementById("postRef").style.display = "none";
             //document.getElementById("accountRef").style.display = "none";
             userIsSignedOut();
         }
