@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
     <title>Messages</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="./style2.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="ratings.js" defer></script>
 </head>
@@ -37,7 +37,7 @@
         <h2 class="section-header">Please leave a rating</h2>
         <div class="feed">
             <input onclick="testc()" class="ratingsButton" value="Send Message">
-            <label>Enter a Username</label><br>
+            <label class="feedChild">Enter a Username</label><br>
                     <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredRatingInput"
                         class="requiredRegister"
                         style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"><br><br>
