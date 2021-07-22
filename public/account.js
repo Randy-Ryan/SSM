@@ -42,7 +42,7 @@ window.onload = function () {
                         if (doc.val().userSend == username){
                             document.getElementById("messageFeed").innerHTML += "<span class='toMSG'>To: " + doc.val().userRecieve +" | "+doc.val().message + "</span>"
                         }
-                        if (doc.val().userReceive == username){
+                        if (doc.val().userRecieve == username){
                             document.getElementById("messageFeed").innerHTML += "<span class='fromMSG'>From: " +doc.val().userSend +" | "+ doc.val().message + "<br><br>"
                         }
                     } else {
