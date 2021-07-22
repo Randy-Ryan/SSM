@@ -20,7 +20,7 @@ p {
 }
 .feed {
     font-size: 1.2rem;
-    background-color: beige;
+    background-color: #FFFFEA;
     border: 3px solid darkgray;
     display: grid;
 }
@@ -28,6 +28,7 @@ p {
     text-align: left;
 }
 .toMSG {
+    background-color:#FFFFEA;
     text-align: left;
     border: 1px solid darkgray;
     border-radius: 15px;
@@ -38,6 +39,7 @@ p {
 
 }
 .fromMSG {
+    background-color: #FFFFEA;
     text-align: right;
     border: 1px solid darkgray;
     border-radius: 15px;
