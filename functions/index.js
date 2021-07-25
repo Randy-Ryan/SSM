@@ -122,6 +122,8 @@ app.get('/checkout', (req, res) => {
 })
 
 app.post('/purchase', function (req, res) {
+    console.log(req.query.price)
+
     shoes.on('value', (snapshot) => {
         // const itemsArray = snapshot.val().shoes
         // let total = 0

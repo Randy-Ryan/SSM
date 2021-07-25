@@ -10,7 +10,7 @@
     <title>Skate Shoe Mate | Store</title>
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="./styles.css" />
-    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <!-- <script src="https://checkout.stripe.com/checkout.js" defer></script> -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         var stripePublicKey = '<%= stripePublicKey %>'
@@ -138,8 +138,6 @@
             <span class="cart-total-price">$0</span>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">CHECKOUT</button>
-        <a href="checkout"><button onclick="testCheckout()" type="button">SHIPPING INFORMATION CHECKOUT</button></a>
-
     </section>
 </body>
 
