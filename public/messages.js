@@ -49,7 +49,7 @@ window.onload = function () {
 
             // hide login/register pages
             // will add more hides here
-            document.getElementById("postRef").style.display = "";
+            // document.getElementById("postRef").style.display = "";
             document.getElementById("accountRef").style.display = "";
 
 
@@ -132,7 +132,7 @@ function acceptExchange(id) {
         }).then(function () {
             // route to home page and set the url params respectivly
             alert('successfully added to database!');
-         window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
+         window.location.assign = '/messages?username=' + username + '&theirUsername=' + theirUsername
         }).catch(function (error) {
             // An error happened.
             alert(error);
@@ -230,7 +230,7 @@ function messageUser() {
         }).then(function () {
             // route to home page and set the url params respectivly
             alert('successfully added to database!');
-            window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
+            window.location.assign = '/messages?username=' + username + '&theirUsername=' + theirUsername
         }).catch(function (error) {
             // An error happened.
             alert(error);

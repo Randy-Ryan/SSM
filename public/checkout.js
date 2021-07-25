@@ -59,7 +59,7 @@ window.onload = function () {
             // User is signed out
             //document.getElementById("postRef").style.display = "none";
             document.getElementById("accountRef").style.display = "none";
-            userIsSignedOut();
+            // userIsSignedOut();
         }
     });
 }
@@ -86,15 +86,15 @@ function messageUser() {
     var error = false;
     var error2 = false;
     var today = new Date();
-    var date = (today.getMonth()+1)+'-'+today.getDate();
+    var date = (today.getMonth() + 1) + '-' + today.getDate();
     var hours = today.getHours();
     var minutes = today.getMinutes();
     var ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
     var strTime = hours + ':' + minutes + ' ' + ampm;
-    var dateTime = date+' '+strTime;
+    var dateTime = date + ' ' + strTime;
     var requiredMessageInput = document.getElementById("message");
 
     message = requiredMessageInput.value
@@ -103,23 +103,81 @@ function messageUser() {
     // console.log(theirUsername)
 
     theirUsername = document.getElementById("testTheirs").innerText.slice(3)
-        var fill = "" + generateRandomNumber(1, 10000000);
+    var fill = "" + generateRandomNumber(1, 10000000);
 
-        firebase.database().ref('messages/' + fill).set({
-            userRecieve: theirUsername,
-            date: dateTime,
-            message: message,
-            userSend: username,
-            messageID: fill
-        }).then(function () {
-            // route to home page and set the url params respectivly
-            alert('successfully added to database!');
-            window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
-        }).catch(function (error) {
-            // An error happened.
-            alert(error);
-        });
-    }
+    firebase.database().ref('messages/' + fill).set({
+        userRecieve: theirUsername,
+        date: dateTime,
+        message: message,
+        userSend: username,
+        messageID: fill
+    }).then(function () {
+        // route to home page and set the url params respectivly
+        alert('successfully added to database!');
+        window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
+    }).catch(function (error) {
+        // An error happened.
+        alert(error);
+    });
+}
+
+
+
+
+function checkoutClicked() {
+    var stripeHandler = StripeCheckout.configure({
+        key: stripePublicKey,
+        image: './Images/jawsx3.jpg',
+        locale: 'auto',
+        token: function (token) {
+            // var items = []
+            // var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+            // var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    
+            // for (var i = 0; i < cartRows.length; i++) {
+            //     var cartRow = cartRows[i]
+            //     var id = cartRow.dataset.itemId
+    
+            //     var price = cartRow.getElementsByClassName('cart-price').innerText
+            //     console.log("PRICE: " + price)
+            //     items.push({
+            //         id: id,
+            //         quantity: 1
+            //     })
+            // }
+                fetch('/purchase', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        stripeTokenId: token.id,
+                        price:price
+                    })
+                }).then(function (res) {
+                    console.log(res)
+                    return res.json()
+                }).then(function (data) {
+                    alert(data.message)
+                    var cartItems = document.getElementsByClassName('cart-items')[0]
+                    while (cartItems.hasChildNodes()) {
+                        cartItems.removeChild(cartItems.firstChild)
+                    }
+                    updateCartTotal()
+                }).catch(function (error) {
+                    console.error(error)
+                })
+        }
+    })
+    alert("heyyyy")
+    var priceElement = document.getElementById('checkout-price')
+    var price = parseFloat(priceElement.innerText.replace('$', '')) * 100
+    // alert(price)
+    stripeHandler.open({
+        amount: price
+    })
+}
 
 //function to check if input field is blank
 function isBlank(inputField) {

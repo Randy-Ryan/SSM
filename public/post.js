@@ -133,7 +133,6 @@ function postShoe() {
                     price:price * 100,
                     username:username
                 }).then(function () {
-                    // route to home page and set the url params respectivly
                     alert('successfully added to database!');
                     window.location.href = "/store"
                 }).catch(function (error) {

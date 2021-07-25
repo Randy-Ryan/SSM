@@ -20,7 +20,6 @@ const dbRef = firebase.database().ref();
 
 // on page load check if user is signed in - style respectivly
 window.onload = function () {
-
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
@@ -28,6 +27,10 @@ window.onload = function () {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
                     username = snapshot.val().username;
+                    document.getElementById('storeRef').href = '/store?username=' + username;
+                    document.getElementById('browseShoes').onclick = function () {
+                        window.location.assign('/store?username=' + username);
+                    }
                 } else {
                     console.log("No data available");
                 }
@@ -63,7 +66,7 @@ function test() {
 
 
     console.log("testtt")
-    axios.post('https://us-central1-skateshoemate-3a12f.cloudfunctions.net/store')
+    // axios.post('https://us-central1-skateshoemate-3a12f.cloudfunctions.net/store')
     .then(response => {
         const users = response.data.data;
         console.log(`GET users`, users);
@@ -195,7 +198,7 @@ function signIn() {
             console.log(fuser);
             userID = fuser.uid;
             username = fuser.displayName;
-            window.location.href = "/store"
+            window.location.href = "/index.html"
             //route to account page when successful and set the url params
             // window.location.href = "../AccountPage/post.html?username=" + fuser.displayName + "&email=" + email + "&userID=" + fuser.uid;;
         }).catch(err => {
@@ -251,7 +254,7 @@ function createAccount() {
                 }).then(function () {
                     // route to home page and set the url params respectivly
                     alert('Account successfully created!');
-                    window.location.href = "/store"
+                    window.location.href = "/index.html"
                     // window.location.href = "../PostPage/post.html?username=" + username + "&email=" + email + "&userID=" + userId;
                 }).catch(function (error) {
                     // An error happened.

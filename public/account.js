@@ -28,6 +28,7 @@ window.onload = function () {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
                     username = snapshot.val().username;
+                    document.getElementById('storeRef').href = '/store?username=' + username;
                     loadAccountPage();
                 } else {
                     console.log("No data available");
