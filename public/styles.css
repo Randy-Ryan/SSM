@@ -29,20 +29,14 @@ p {
     text-align: left;
 }
 .toMSG {
-    background-color:#B8C6B0;
     text-align: left;
-    border: 1px solid darkgray;
-    border-radius: 15px;
     padding: 5px;
     padding-left: 10px;
     margin: 5px;
 
 }
 .fromMSG {
-    background-color: #B8C6B0;
     text-align: right;
-    border: 1px solid darkgray;
-    border-radius: 15px;
     padding: 5px;
     padding-right: 10px;
     margin: 5px;
@@ -114,6 +108,31 @@ body {
     margin: 0 auto;
     padding: 0 1.5em;
 }
+.msg-container {
+    display: grid; 
+    grid-template-columns: 1.1fr 0.7fr 1.2fr; 
+    grid-template-rows: .5fr 1fr .5fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "ToFrom . ."
+      "main-message main-message main-message"
+      ". . DateTime"; 
+  }
+  .main-message { 
+      grid-area: main-message;
+      background-color:#B8C6B0;
+      border: 1px solid darkgray;
+      border-radius: 15px;
+      padding: 15px;
+     }
+  .ToFrom {
+     grid-area: ToFrom;
+     text-align: left;
+    }
+  .DateTime { 
+    grid-area: DateTime;
+    text-align: right;
+    }
 
 .btn {
     text-align: center;
