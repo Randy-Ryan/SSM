@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         var stripePublicKey = '<%= stripePublicKey %>'
+        var username = '<%= username %>'
     </script>
     <script src="store.js" defer></script>
 </head>
@@ -26,13 +27,13 @@
                     <a style="font-size: 4rem" class="title" href="index.html">SKATE SHOE MATE</a>
                 </h1>
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="store">STORE</a></li>
+                <li><a href="store" id = 'storeRef'>STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
                 <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
             </ul>
         </nav>
     </header>
-<br>
+    <br>
     <section class="container content-section">
         <div style="padding: 5px;" class="shadow border">
             <input type="text" placeholder="Search by keyword..">
@@ -68,12 +69,12 @@
                 <option value="quality">More than $20</option>
             </select>
             <br><br>
-            <button onclick = "applyFilters()" id="applyFilters">Apply filters</button>
-            
+            <button onclick="applyFilters()" id="applyFilters">Apply filters</button>
+
         </div>
         <h2 class="section-header">
             <div>Shoe Listings</div>
-            <button style="width:30%" id= "newPost" type="button" class="btn-primary">Post New Shoe</button>
+            <button style="width:30%" id="newPost" type="button" class="btn-primary">Post New Shoe</button>
             <script type="text/javascript">
                 document.getElementById("newPost").onclick = function () {
                     location.href = "/post.html";
@@ -85,7 +86,7 @@
             <% for (const item in items) { %>
                 <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
                     <span class="shop-item-title">
-                        <%- items[item].brand + " size " + items[item].size +  " | " + items[item].username %>
+                        <%- items[item].brand + " size " + items[item].size + " | " + items[item].username %>
                     </span>
                     <img class="shop-item-image" src="<%= items[item].imageURL %>">
                     <div class="shop-item-details">
@@ -98,8 +99,11 @@
                     <br><br>
                     <span class="shop-item-details">
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                        <%- "<button onclick = " + "test('"+ items[item].username+ "') type='button'>Message this seller</button>" %>
-                        <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This User</button>
+
+                        <% if(username !=items[item].username){ %> 
+                            <%- "<button onclick = " + "test('" +items[item].username+ "') type='button'>Message this seller</button>" %>
+                                <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This User</button>
+                            <% } %>
                     </span>
 
                     <!-- <script>
@@ -114,8 +118,8 @@
 
                         }
                     </script> -->
-    
-                     <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
+
+                    <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
                 </div>
                 <% } %>
         </div>
@@ -134,7 +138,7 @@
             <span class="cart-total-price">$0</span>
         </div>
         <button class="btn btn-primary btn-purchase" type="button">CHECKOUT</button>
-        <a href="checkout"><button onclick = "testCheckout()" type="button">SHIPPING INFORMATION CHECKOUT</button></a>
+        <a href="checkout"><button onclick="testCheckout()" type="button">SHIPPING INFORMATION CHECKOUT</button></a>
 
     </section>
 </body>

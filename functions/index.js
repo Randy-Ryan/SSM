@@ -76,6 +76,7 @@ app.use(express.static('../public'))
 app.get('/ratings', (req, res) => {
 
     var params2 = req.query;
+    console.log(params2)
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
         res.render('ratings.ejs', {
@@ -86,7 +87,6 @@ app.get('/ratings', (req, res) => {
 })
 
 app.get('/messages', (req, res) => {
-
     var params2 = req.query;
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
@@ -99,37 +99,38 @@ app.get('/messages', (req, res) => {
     });
 })
 
-// app.get('/messages', (req, res) => {
-//         res.render('messages.ejs')
-// })
-
 
 
 app.get('/store', (req, res) => {
     shoes.on('value', (snapshot) => {
         res.render('store.ejs', {
             stripePublicKey: stripePublicKey,
+            username: req.query.username,
             items: snapshot.val().shoes
         })
     });
 })
 
 app.get('/checkout', (req, res) => {
+    // console.log(req.query.price)
     shoes.on('value', (snapshot) => {
         res.render('checkout.ejs', {
+            stripePublicKey: stripePublicKey,
+            price: req.query.price
         })
     });
 })
 
 app.post('/purchase', function (req, res) {
     shoes.on('value', (snapshot) => {
-        const itemsArray = snapshot.val().shoes
-        let total = 0
-        req.body.items.forEach(function (item) {
-            const itemJson = itemsArray[parseInt(item.id)];
-            total = total + itemJson.price
-        })
-        
+        // const itemsArray = snapshot.val().shoes
+        // let total = 0
+        // req.body.items.forEach(function (item) {
+        //     const itemJson = itemsArray[parseInt(item.id)];
+        //     total = total + itemJson.price
+        // })
+        console.log(req.query.price)
+        total = req.query.price
         stripe.charges.create({
             amount: total,
             source: req.body.stripeTokenId,
