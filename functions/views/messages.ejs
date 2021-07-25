@@ -36,9 +36,9 @@
             <% for (const message in messages) { %>
                 <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername)) { %>
                     <div class="fromMSG" data-item-id="<%= messages[message].docID %>">
-                        <span class="feedChild">
-                            <%- "<span>From " + messages[message].userSend + ": to " + messages[message].userRecieve
-                                + " </span><span>" + messages[message].message + "</span><span>(Date: " + messages[message].date
+                        <span class="msg-container">
+                            <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " + messages[message].userRecieve
+                                + " </span><span class='main-message'>" + messages[message].message + "</span><span class='DateTime'>(Date: " + messages[message].date
                                 + ")</span>" %>
                         </span>
                     </div>
@@ -46,9 +46,9 @@
                         <% if((messages[message].userRecieve==theirUsername && messages[message].userSend==username)){
                             %>
                             <div class="toMSG" data-item-id="<%= messages[message].docID %>">
-                                <span class="feedChild">
-                                    <%- "<span>From " + messages[message].userSend + ": to " + messages[message].userRecieve
-                                        + " </span><span>" + messages[message].message + "</span><span>(Date: " +
+                                <span class="msg-container">
+                                    <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " + messages[message].userRecieve
+                                        + " </span><span class='main-message'>" + messages[message].message + "</span><span class='DateTime'>(Date: " +
                                         messages[message].date + ")</span>" %>
                                 </span>
                             </div>
