@@ -55,7 +55,7 @@ window.onload = function () {
             });
 
             var overallRating = 0;
-
+            var count = 0
             dbRef.child("ratings").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
@@ -63,9 +63,9 @@ window.onload = function () {
                             document.getElementById("ratingsFeed").innerHTML += "<span class='feedChild'>From: " + doc.val().userSend +" | Rating: "+ doc.val().rating + "/5 | Comment: " + doc.val().comment + "</span>"
                             parse = parseInt(doc.val().rating);
                             console.log(parse);
-                            
+                            count++;
                             overallRating = parse + overallRating;
-                            document.getElementById("overallRating").innerHTML = "Overall rating: " + overallRating;
+                            document.getElementById("overallRating").innerHTML = "Overall rating: " + overallRating/count;
                         }
                     } else {
                         console.log("No data available");
