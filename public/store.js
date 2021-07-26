@@ -25,6 +25,8 @@ window.onload = function () {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
+            document.getElementById("accountRef").style.display = "";
+
             dbRef.child("users").child(userID).get().then((snapshot) => {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
@@ -64,6 +66,8 @@ function userIsSignedOut() {
 
     //show login page % hide the rest
     //shouldnt be the case so route to home
+    // console.log("HEYYYY")
+    // document.getElementById("accountRef").style.display = "none"
 }
 
 
@@ -91,7 +95,7 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
-function ratingFunction(){
+function ratingFunction() {
 
     //let test = propmt("This is a test: ", "");
 
@@ -101,6 +105,7 @@ function ratingFunction(){
 }
 
 async function test(theirUsername) {
+
     window.location.assign('/messages?username=' +username+'&theirUsername=' + theirUsername); 
 }
 
@@ -155,7 +160,7 @@ async function test(theirUsername) {
 
 function base64_url_encode($input) {
     return strtr(base64_encode($input), '+/=', '._-');
-   }
+}
 
 function purchaseClicked() {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
@@ -164,7 +169,7 @@ function purchaseClicked() {
     //     amount: price
     // })
     window.location.assign('/checkout?price=' + price)
- 
+
 }
 
 
@@ -197,7 +202,7 @@ function addToCartClicked(event) {
 
     items.push({
         "title": title,
-        "price": price, 
+        "price": price,
         "img": imageSrc,
         "id": id
     })
@@ -250,5 +255,5 @@ function testCheckout() {
     //load the shipping page
 
 
-    
+
 }

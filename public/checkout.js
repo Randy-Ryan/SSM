@@ -34,6 +34,8 @@ window.onload = function () {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
+            document.getElementById("accountRef").style.display = "";
+
             dbRef.child("users").child(userID).get().then((snapshot) => {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;

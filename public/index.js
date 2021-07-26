@@ -23,6 +23,8 @@ window.onload = function () {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
+            document.getElementById("accountRef").style.display = "";
+
             dbRef.child("users").child(userID).get().then((snapshot) => {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
@@ -380,6 +382,13 @@ function userIsSignedOut() {
     document.getElementById("loginPage").style.display = "";
 
     document.getElementById("registerPage").style.display = "none";
+    document.getElementById("indexDiv").style.display = "none";
+   document.getElementById("indexDiv2").style.display = "none";
+   document.getElementById("accountRef").style.display = "none";
+    // document.getElementById("registerPage").style.display = "none";
+
+
+
 
 }
 

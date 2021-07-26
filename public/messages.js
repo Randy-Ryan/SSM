@@ -26,10 +26,14 @@ window.onload = function () {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             userID = user.uid;
+            document.getElementById("accountRef").style.display = "";
+
             dbRef.child("users").child(userID).get().then((snapshot) => {
                 if (snapshot.exists()) {
                     email = snapshot.val().email;
                     username = snapshot.val().username;
+                    document.getElementById('storeRef').href = '/store?username=' + username;
+
                     // document.getElementById("username").innerText = username;
 
                 } else {
@@ -190,7 +194,7 @@ function initExchange() {
         }).then(function () {
             // route to home page and set the url params respectivly
             alert('successfully added to database!');
-         window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
+         window.location.assign('/messages?username=' + username + '&theirUsername=' + theirUsername)
         }).catch(function (error) {
             // An error happened.
             alert(error);
@@ -230,7 +234,7 @@ function messageUser() {
         }).then(function () {
             // route to home page and set the url params respectivly
             alert('successfully added to database!');
-            window.location.assign = '/messages?username=' + username + '&theirUsername=' + theirUsername
+            window.location.assign('/messages?username=' + username + '&theirUsername=' + theirUsername)
         }).catch(function (error) {
             // An error happened.
             alert(error);
