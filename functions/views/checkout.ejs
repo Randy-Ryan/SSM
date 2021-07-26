@@ -10,11 +10,13 @@
   <title>Skate Shoe Mate | Checkout</title>
   <meta name="description" content="This is the description">
   <link rel="stylesheet" href="./styles.css" />
+  <script src="https://checkout.stripe.com/checkout.js" defer></script>
   <script>
     var stripePublicKey = '<%= stripePublicKey %>'
+    var price = '<%= price %>'
+
   </script>
-<script src="https://checkout.stripe.com/checkout.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
   <script src="checkout.js" defer></script>
 
 </head>
@@ -39,20 +41,14 @@
     <h2 class="section-header">CHECKOUT PAGE</h2>
   </section>
   <section class="container content-section">
-    <h2 class="section-header">CART</h2>
-    <div class="cart-row">
-        <span class="cart-item cart-header cart-column">ITEM</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-        <span class="cart-quantity cart-header cart-column"></span>
-    </div>
     <div class="cart-items">
     </div>
     <div class="cart-total">
-        <strong class="cart-total-title">Total</strong>
-        <span id="checkout-price">$<%- price/100 %> </span>
+      <strong class="cart-total-title">Total</strong>
+      <span id="checkout-price">$<%- price/100 %> </span>
     </div>
 
-</section>
+  </section>
   <section class="container content-section">
     <div class="cart-row">
 
@@ -253,9 +249,10 @@
               <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
             </label>
           </div>
-          <input type="submit" onclick="checkoutClicked()" value="Continue to purchase" class="btn">
       </form>
     </div>
+    <button type="submit" onclick="checkoutClicked()"class = 'btn'>CONTINUE TO PURCHASE</button>
+
   </div>
 
 

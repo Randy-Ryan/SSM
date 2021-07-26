@@ -112,11 +112,13 @@ app.get('/store', (req, res) => {
 })
 
 app.get('/checkout', (req, res) => {
-    // console.log(req.query.price)
+    // console.log(req.query.items)
+    // console.log(JSON.parse(req.query.items))
     shoes.on('value', (snapshot) => {
         res.render('checkout.ejs', {
             stripePublicKey: stripePublicKey,
-            price: req.query.price
+            price: req.query.price,
+            // items: req.query.items
         })
     });
 })
@@ -131,10 +133,10 @@ app.post('/purchase', function (req, res) {
         //     const itemJson = itemsArray[parseInt(item.id)];
         //     total = total + itemJson.price
         // })
-        console.log(req.query.price)
-        total = req.query.price
+        // console.log(req.body.price)
+        // total = req.body.price
         stripe.charges.create({
-            amount: total,
+            amount: req.body.price,
             source: req.body.stripeTokenId,
             currency: 'usd'
         }).then(function () {

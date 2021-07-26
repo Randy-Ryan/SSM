@@ -10,8 +10,8 @@
     <title>Skate Shoe Mate | Store</title>
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="./styles.css" />
-    <!-- <script src="https://checkout.stripe.com/checkout.js" defer></script> -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script>
         var stripePublicKey = '<%= stripePublicKey %>'
         var username = '<%= username %>'
@@ -27,7 +27,7 @@
                     <a style="font-size: 4rem" class="title" href="index.html">SKATE SHOE MATE</a>
                 </h1>
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="store" id = 'storeRef'>STORE</a></li>
+                <li><a href="store" id='storeRef'>STORE</a></li>
                 <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
                 <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
             </ul>
@@ -100,10 +100,12 @@
                     <span class="shop-item-details">
                         <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
 
-                        <% if(username !=items[item].username){ %> 
-                            <%- "<button onclick = " + "test('" +items[item].username+ "') type='button'>Message this seller</button>" %>
-                                <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This User</button>
-                            <% } %>
+                        <% if(username !=items[item].username){ %>
+                            <%- "<button onclick = " + "test('"
+                                +items[item].username+ "') type='button'>Message this seller</button>" %>
+                                <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This
+                                    User</button>
+                                <% } %>
                     </span>
 
                     <!-- <script>

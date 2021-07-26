@@ -105,53 +105,57 @@ async function test(theirUsername) {
 }
 
 
-var stripeHandler =
-    StripeCheckout.configure({
-        key: stripePublicKey,
-        locale: 'auto',
-        token: function (token) {
-            var items = []
-            var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-            var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+// var stripeHandler =
+//     StripeCheckout.configure({
+//         key: stripePublicKey,
+//         locale: 'auto',
+//         token: function (token) {
+//             // var items = []
+//             // var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+//             // var cartRows = cartItemContainer.getElementsByClassName('cart-row')
 
-            for (var i = 0; i < cartRows.length; i++) {
-                var cartRow = cartRows[i]
-                var id = cartRow.dataset.itemId
+//             // for (var i = 0; i < cartRows.length; i++) {
+//             //     var cartRow = cartRows[i]
+//             //     var id = cartRow.dataset.itemId
 
-                var price = cartRow.getElementsByClassName('cart-price').innerText
-                console.log("PRICE: " + price)
-                items.push({
-                    id: id,
-                    quantity: 1
-                })
-            }
+//             //     var price = cartRow.getElementsByClassName('cart-price').innerText
+//             //     console.log("PRICE: " + price)
+//             //     items.push({
+//             //         id: id,
+//             //         quantity: 1
+//             //     })
+//             // }
 
-            fetch('/purchase', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    stripeTokenId: token.id,
-                    items: items
-                })
-            }).then(function (res) {
-                console.log(res)
-                return res.json()
-            }).then(function (data) {
-                alert(data.message)
-                var cartItems = document.getElementsByClassName('cart-items')[0]
-                while (cartItems.hasChildNodes()) {
-                    cartItems.removeChild(cartItems.firstChild)
-                }
-                updateCartTotal()
-            }).catch(function (error) {
-                console.error(error)
-            })
+//             fetch('/purchase', {
+//                 method: 'POST',
+//                 headers: {
+//                     'Content-Type': 'application/json',
+//                     'Accept': 'application/json'
+//                 },
+//                 body: JSON.stringify({
+//                     stripeTokenId: token.id,
+//                     items: items
+//                 })
+//             }).then(function (res) {
+//                 console.log(res)
+//                 return res.json()
+//             }).then(function (data) {
+//                 alert(data.message)
+//                 var cartItems = document.getElementsByClassName('cart-items')[0]
+//                 while (cartItems.hasChildNodes()) {
+//                     cartItems.removeChild(cartItems.firstChild)
+//                 }
+//                 updateCartTotal()
+//             }).catch(function (error) {
+//                 console.error(error)
+//             })
 
-        }
-    })
+//         }
+//     })
+
+function base64_url_encode($input) {
+    return strtr(base64_encode($input), '+/=', '._-');
+   }
 
 function purchaseClicked() {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
@@ -162,6 +166,7 @@ function purchaseClicked() {
     window.location.assign('/checkout?price=' + price)
  
 }
+
 
 function removeCartItem(event) {
     var buttonClicked = event.target
@@ -177,6 +182,8 @@ function quantityChanged(event) {
     updateCartTotal()
 }
 
+var items = [];
+
 function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
@@ -187,6 +194,14 @@ function addToCartClicked(event) {
     console.log(title)
 
     addItemToCart(title, price, imageSrc, id)
+
+    items.push({
+        "title": title,
+        "price": price, 
+        "img": imageSrc,
+        "id": id
+    })
+    console.log(items)
     updateCartTotal()
 }
 
