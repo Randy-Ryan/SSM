@@ -38,10 +38,14 @@
           <label style = "text-align: center; color: black;" >Stance: </label>
           
           <!-- CHANGE THIS FOR RADIO BUTTONS SO BOTH ARE REQUIRED -->
-            <input  id = "goofyRadio" type = "radio" name="CreateListing" class="requiredShoeInput" value = "Goofy">
-            <label class = "post">Goofy</label>
-            <input  id = "regularRadio" type = "radio" name="CreateListing" value = "Regular">
-            <label class = "post" >Regular</label>
+          
+            <select name="priceCategory" id="priceFilters" class="requiredShoeInput">
+              <option>Stance</option>
+              <option></option>
+              <option value="Goofy">Goofy</option>
+              <option value="Regular">Regular</option>
+              
+          </select>
           <br>
           <label for = "Brand" style = "text-align: center; color: black;">Brand: </label>
           

@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "AIzaSyDBLsz1BVWiJTB5HofoERqvW03G0ihMY5s",
     authDomain: "skateshoemate-3a12f.firebaseapp.com",
@@ -71,8 +70,40 @@ function userIsSignedOut() {
     // document.getElementById("accountRef").style.display = "none"
 }
 
+function ratingFunction() {
+
+    //let test = propmt("This is a test: ", "");
+
+    window.location.href = 'ratings'
 
 
+}
+
+async function test(theirUsername) {
+
+    window.location.assign('/messages?username=' +username+'&theirUsername=' + theirUsername); 
+}
+
+function removeFilters(){
+    window.location.assign("/store");
+}
+
+function applyFilters(){
+
+    stanceEle = document.getElementById("stanceFilters");
+    sizeEle = document.getElementById("sizeFilters");
+    qualityEle = document.getElementById("qualityFilters");
+
+    stance = stanceEle.value;
+    size = sizeEle.value;
+    quality = qualityEle.value;
+
+    window.location.assign("/filters?stance=" + stance + "&size=" + size +"&quality=" + quality);
+    document.getElementById("shopTest").style.display = "none";
+   // window.location.assign("/store?size=" + size);
+    //window.location.assign("/store?size=" + quality);
+
+}
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
@@ -94,90 +125,6 @@ function ready() {
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
-}
-
-function ratingFunction() {
-
-    //let test = propmt("This is a test: ", "");
-
-    window.location.href = 'ratings'
-
-
-}
-
-async function test(theirUsername) {
-
-    window.location.assign('/messages?username=' +username+'&theirUsername=' + theirUsername); 
-}
-
-
-// var stripeHandler =
-//     StripeCheckout.configure({
-//         key: stripePublicKey,
-//         locale: 'auto',
-//         token: function (token) {
-//             // var items = []
-//             // var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-//             // var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-
-//             // for (var i = 0; i < cartRows.length; i++) {
-//             //     var cartRow = cartRows[i]
-//             //     var id = cartRow.dataset.itemId
-
-//             //     var price = cartRow.getElementsByClassName('cart-price').innerText
-//             //     console.log("PRICE: " + price)
-//             //     items.push({
-//             //         id: id,
-//             //         quantity: 1
-//             //     })
-//             // }
-
-//             fetch('/purchase', {
-//                 method: 'POST',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                     'Accept': 'application/json'
-//                 },
-//                 body: JSON.stringify({
-//                     stripeTokenId: token.id,
-//                     items: items
-//                 })
-//             }).then(function (res) {
-//                 console.log(res)
-//                 return res.json()
-//             }).then(function (data) {
-//                 alert(data.message)
-//                 var cartItems = document.getElementsByClassName('cart-items')[0]
-//                 while (cartItems.hasChildNodes()) {
-//                     cartItems.removeChild(cartItems.firstChild)
-//                 }
-//                 updateCartTotal()
-//             }).catch(function (error) {
-//                 console.error(error)
-//             })
-
-//         }
-//     })
-
-function base64_url_encode($input) {
-    return strtr(base64_encode($input), '+/=', '._-');
-}
-
-function applyFilters(){
-
-    stanceEle = document.getElementById("stanceFilters");
-    sizeEle = document.getElementById("sizeFilters");
-    qualityEle = document.getElementById("qualityFilters");
-
-    stance = stanceEle.value;
-    size = sizeEle.value;
-    quality = qualityEle.value;
-
-    window.location.assign("/filters?stance=" + stance + "&size=" + size +"&quality=" + quality);
-    document.getElementById("shopTest").style.display = "none";
-   // window.location.assign("/store?size=" + size);
-    //window.location.assign("/store?size=" + quality);
-
 }
 
 
