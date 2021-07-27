@@ -29,6 +29,7 @@ p {
 .feedChild {
     text-align: left;
 }
+
 .toMSG {
     text-align: left;
     padding: 5px;
@@ -363,4 +364,19 @@ body {
     display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+}
+
+.feed1 {
+    font-size: 1.2rem;
+    background-color: #FFFFEA;
+    border: 3px solid darkgray;
+    border-radius: 3%;
+    margin-bottom: 7px;
+    padding: 5px;
+
+}
+.feedChild1 {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 5px;
 }
