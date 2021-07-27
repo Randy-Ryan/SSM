@@ -24,6 +24,7 @@ p {
     border: 3px solid darkgray;
     display: grid;
     margin-bottom: 7px;
+    padding: 5px;
 }
 .feedChild {
     text-align: left;
