@@ -99,14 +99,28 @@ app.get('/messages', (req, res) => {
     });
 })
 
-
+app.get('/filters', (req, res) => {
+    shoes.on('value', (snapshot) => {
+        res.render('filters.ejs', {
+            stripePublicKey: stripePublicKey,
+            username: req.query.username,
+            items: snapshot.val().shoes,
+            stance: req.query.stance,
+            size: req.query.size,
+            quality: req.query.quality
+        })
+    });
+})
 
 app.get('/store', (req, res) => {
     shoes.on('value', (snapshot) => {
         res.render('store.ejs', {
             stripePublicKey: stripePublicKey,
             username: req.query.username,
-            items: snapshot.val().shoes
+            items: snapshot.val().shoes,
+            stance: req.query.stance,
+            size: req.query.size,
+            quality: req.query.quality
         })
     });
 })

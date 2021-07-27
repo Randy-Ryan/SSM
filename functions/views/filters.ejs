@@ -19,7 +19,7 @@
         var size = '<%= size %>'
         var quality = '<%= quality %>'
     </script>
-    <script src="store.js" defer></script>
+    <script src="filters.js" defer></script>
 </head>
 
 <body>
@@ -71,7 +71,7 @@
             </select>
             <br><br>
             <button onclick="applyFilters()" id="applyFilters">Apply filters</button>
-
+            <button onclick="removeFilters()" id="removeFilters">Remove filters</button>
         </div>
         <h2 class="section-header">
             <div>Shoe Listings</div>
@@ -83,52 +83,52 @@
             </script>
         </h2>
 
-        
         <div class="shop-container">
             <% for (const item in items) { %>
-               <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
-                    <span class="shop-item-title">
-                        <%- items[item].brand + " size " + items[item].size + " | " + items[item].username %>
-                    </span>
-                    <img class="shop-item-image" src="<%= items[item].imageURL %>">
-                    <div class="shop-item-details">
-                        <%- "Stance: " + items[item].stance + "<br>  Quality: " + items[item].quality %>
-                            <br><br>
-                    </div>
-                    <span class="shop-item-price">
-                        $<%= items[item].price / 100 %>
-                    </span>
-                    <br><br>
-                    <span class="shop-item-details">
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                <% if (stance==items[item].stance && size==items[item].size && quality==items[item].quality) { %>
+                    <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
+                        <span class="shop-item-title">
+                            <%- items[item].brand + " size " + items[item].size + " | " + items[item].username %>
+                        </span>
+                        <img class="shop-item-image" src="<%= items[item].imageURL %>">
+                        <div class="shop-item-details">
+                            <%- "Stance: " + items[item].stance + "<br>  Quality: " + items[item].quality %>
+                                <br><br>
+                        </div>
+                        <span class="shop-item-price">
+                            $<%= items[item].price / 100 %>
+                        </span>
+                        <br><br>
+                        <span class="shop-item-details">
+                            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
 
-                        <% if(username !=items[item].username){ %>
-                            <%- "<button onclick = " + "test('"
-                                +items[item].username+ "') type='button'>Message this seller</button>" %>
-                                <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This
-                                    User</button>
-                                <% } %>
-                    </span>
-                    <span class="filter-item-detail">
-                        <script>
-                            function applyFilters(){
+                            <% if(username !=items[item].username){ %>
+                                <%- "<button onclick = " + "test('"
+                                    +items[item].username+ "') type='button'>Message this seller</button>" %>
+                                    <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This
+                                        User</button>
+                                    <% } %>
+                        </span>
+                        <span class="filter-item-detail">
+                            <script>
+                                function applyFilters() {
 
-                                stanceEle = document.getElementById("stanceFilters");
-                                sizeEle = document.getElementById("sizeFilters");
-                                qualityEle = document.getElementById("qualityFilters");
+                                    stanceEle = document.getElementById("stanceFilters");
+                                    sizeEle = document.getElementById("sizeFilters");
+                                    qualityEle = document.getElementById("qualityFilters");
 
-                                stance = stanceEle.value;
-                                sizeEle = sizeEle.value;
-                                quality = qualityEle.value;
+                                    stance = stanceEle.value;
+                                    sizeEle = sizeEle.value;
+                                    quality = qualityEle.value;
 
-                                console.log(stance);
+                                    console.log(stance);
 
-                            }
-                        </script>
+                                }
+                            </script>
 
-                    </span>
+                        </span>
 
-                    <!-- <script>
+                        <!-- <script>
                         function ratingFunction(){
                             let test = prompt("Please Add a Comment About this User: ", "")
                             let text = "";
@@ -141,14 +141,14 @@
                         }
                     </script> -->
 
-                    <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
-                </div>
-                <% } %>
-            
-                
-        </div>
+                        <!-- <button onclick = "test(items[item].username)" type="button">Message this seller</button> -->
+                    </div>
+                    <% } %>
+                        <% } %>
 
-        
+        </div><br><br>
+
+
     </section>
     <section class="container content-section">
         <h2 class="section-header">CART</h2>
