@@ -74,8 +74,7 @@ window.onload = function () {
             }).catch((error) => {
                 console.error(error);
             });
-
-            
+        
 
             dbRef.child("shoes").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {

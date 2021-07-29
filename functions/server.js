@@ -98,6 +98,20 @@ app.get('/messages', (req, res) => {
         })
     });
 })
+app.get('/theirAccount', (req, res) => {
+    var params2 = req.query;
+    // shoes.on('value', (snapshot) => {
+        // const data = snapshot.val();
+        // console.log(data)
+        // console.log(params2["username"])
+        res.render('theirAccount.ejs', {
+            // messages: snapshot.val().messages,
+            // username: params2["username"],
+            theirUsername: params2["theirUsername"]
+        })
+    // });
+})
+
 
 app.get('/filters', (req, res) => {
     shoes.on('value', (snapshot) => {

@@ -174,7 +174,7 @@ function applyFilters(){
     quality = qualityEle.value;
 
     window.location.assign("/filters?stance=" + stance + "&size=" + size +"&quality=" + quality);
-    document.getElementById("shopTest").style.display = "none";
+    // document.getElementById("shopTest").style.display = "none";
    // window.location.assign("/store?size=" + size);
     //window.location.assign("/store?size=" + quality);
 

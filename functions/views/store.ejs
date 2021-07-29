@@ -87,9 +87,9 @@
         <div class="shop-container">
             <% for (const item in items) { %>
                <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
-                    <span class="shop-item-title">
+                   <a href ="/theirAccount?theirUsername=<%- items[item].username %>"><span class="shop-item-title">
                         <%- items[item].brand + " size " + items[item].size + " | " + items[item].username %>
-                    </span>
+                    </span></a> 
                     <img class="shop-item-image" src="<%= items[item].imageURL %>">
                     <div class="shop-item-details">
                         <%- "Stance: " + items[item].stance + "<br>  Quality: " + items[item].quality %>

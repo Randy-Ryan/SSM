@@ -7,45 +7,37 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
-    <title>The Generics | About</title>
+    <title>Skate Shoe Mate | Store</title>
     <meta name="description" content="This is the description">
-    <link rel="stylesheet" href="styles.css" />
-    <script src="./account.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+        var theirUsername = '<%= theirUsername %>'
 
+    </script>
+    <script src="theirAccount.js" defer></script>
 </head>
 
 <body>
     <header class="main-header">
-        <nav class="main-nav">
+        <nav class="main-nav nav">
             <ul>
                 <h1 class="header-title">
                     <a style="font-size: 4rem" class="title" href="index.html">SKATE SHOE MATE</a>
                 </h1>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="store" id='storeRef'>STORE</a></li>
-                <li><a href="account.html" id="accountRef">MY ACCOUNT</a></li>
+                <li><a href="account.html" id="accountRef" style="display: none">MY ACCOUNT</a></li>
+                <!-- <li><a href="post.html" id="postRef">NEW POST</a></li> -->
+            </ul>
         </nav>
     </header>
 
     <section class="content-section container">
-        <h2 class="section-header">My Account Page</h2>
+        <h2 class="section-header"><%- theirUsername + "'s Account Page"%></h2>
     </section>
     <!-- FULL ACCOUNT PAGE -->
-    <div id="accountPage" style="text-align: center; display: none;">
-        <p id="usernameDisplay" class="accountDisplay"></p>
-        <p id="emailDisplay" class="accountDisplay"></p>
-        <!-- This text will change once the db command is finished executing. This can be buggy sometimes - implementation needs work -->
-        <p id="idDisplay" class="accountDisplay">Getting user ID from database...</p>
-
+    <div id="accountPage" style="text-align: center;">
         <br>
-        <div style="text-align: center;">
-            <button class="sendButton" id="signoutButton" onclick="signOut()">Sign Out</button>
-        </div>
-        <div class="feed" id="messageFeed">
-            <h1 class="section-header">
-                <h1 class="section-header">Messages</h1>
-            </h1>
-        </div>
         <div class="feed" id="postFeed">
             <h1 class="section-header">Posts</h1>
         </div>
@@ -56,6 +48,8 @@
             <h1 class="section-header">Overall Rating</h1>
         </div>
     </div>
+
+
 </body>
 
 </html>
