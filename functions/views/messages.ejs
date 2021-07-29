@@ -22,7 +22,7 @@
                     <a style="font-size: 4rem" class="title" href="index.html">SKATE SHOE MATE</a>
                 </h1>
                 <li><a href="index.html">HOME</a></li>
-                <li><a href="store" id = "storeRef">STORE</a></li>
+                <li><a href="store" id="storeRef">STORE</a></li>
                 <li><a href="account.html" id="accountRef" style="display: none">MY ACCOUNT</a></li>
 
             </ul>
@@ -36,9 +36,10 @@
                 <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername)) { %>
                     <div class="fromMSG" data-item-id="<%= messages[message].docID %>">
                         <span class="msg-container">
-                            <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " + messages[message].userRecieve
-                                + " </span><span class='main-message'>" + messages[message].message + "</span><span class='DateTime'>(Date: " + messages[message].date
-                                + ")</span>" %>
+                            <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " +
+                                messages[message].userRecieve + " </span><span class='main-message'>" + 
+                                    messages[message].message                    
+                                    + "</span><span class=' DateTime'>(Date: " + messages[message].date+ ")</span>" %>
                         </span>
                     </div>
                     <% } %>
@@ -46,17 +47,18 @@
                             %>
                             <div class="toMSG" data-item-id="<%= messages[message].docID %>">
                                 <span class="msg-container">
-                                    <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " + messages[message].userRecieve
-                                        + " </span><span class='main-message'>" + messages[message].message + "</span><span class='DateTime'>(Date: " +
+                                    <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " +
+                                        messages[message].userRecieve + " </span><span class='main-message'>" +
+                                        messages[message].message + "</span><span class='DateTime'>(Date: " +
                                         messages[message].date + ")</span>" %>
                                 </span>
                             </div>
-                            
+
                             <% } %>
-                                <% } %>
+                <% } %>
         </div>
     </section>
-    <br><br><br><br> <br><br><br><br>    <br><br><br><br> <br><br><br><br>
+    <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br>
 
     <section class="container content-section">
         <div class="cart-row">
@@ -66,10 +68,13 @@
             <input type="text" id="message" onclick="makeClean(document.getElementById('message'))" name="Message"
                 class="requiredMessageInput"
                 style="width: 50%; height: 35px; border: 1px solid black; color: black;"><br><br>
-            <button style="margin-left: 5px;" onclick="messageUser()" class="btn btn-primary" value="Send Message">SEND MESSAGE</button>
+            <button style="margin-left: 5px;" onclick="messageUser()" class="btn btn-primary" value="Send Message">SEND
+                MESSAGE</button>
         </div>
         <br><br>
-        <button onclick="initExchange()" class="btn btn-primary" style="padding: 3%;">  <%- "INITIATE AN EXCHANGE REQUEST WITH " + theirUsername %></button>
+        <button onclick="initExchange()" class="btn btn-primary" style="padding: 3%;">
+            <%- "INITIATE AN EXCHANGE REQUEST WITH " + theirUsername %>
+        </button>
 
         <div class="cart-items">
 

@@ -73,7 +73,7 @@ app.use(express.static('../public'))
 
 // });
 
-app.get('/ratings', (req, res) => {
+app.get('/ratings', (req, res, next) => {
 
     var params2 = req.query;
     console.log(params2)
@@ -84,6 +84,14 @@ app.get('/ratings', (req, res) => {
             theirUsername: params2["theirUsername"]
         })
     });
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
 })
 
 app.get('/messages', (req, res, next) => {
@@ -107,7 +115,7 @@ app.get('/messages', (req, res, next) => {
     });
 
 })
-app.get('/theirAccount', (req, res) => {
+app.get('/theirAccount', (req, res, next) => {
     var params2 = req.query;
     // shoes.on('value', (snapshot) => {
         // const data = snapshot.val();
@@ -119,10 +127,18 @@ app.get('/theirAccount', (req, res) => {
             theirUsername: params2["theirUsername"]
         })
     // });
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
 })
 
 
-app.get('/filters', (req, res) => {
+app.get('/filters', (req, res, next) => {
     shoes.on('value', (snapshot) => {
         res.render('filters.ejs', {
             stripePublicKey: stripePublicKey,
@@ -133,6 +149,14 @@ app.get('/filters', (req, res) => {
             quality: req.query.quality
         })
     });
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
 })
 
 app.get('/store', (req, res, next) => {
@@ -156,7 +180,7 @@ app.get('/store', (req, res, next) => {
     next();
 })
 
-app.get('/checkout', (req, res) => {
+app.get('/checkout', (req, res, next) => {
     // console.log(req.query.items)
     // console.log(JSON.parse(req.query.items))
     shoes.on('value', (snapshot) => {
@@ -166,6 +190,14 @@ app.get('/checkout', (req, res) => {
             // items: req.query.items
         })
     });
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
 })
 
 app.post('/purchase', function (req, res) {
