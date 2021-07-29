@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="ratings.js" defer></script>
+    <script>
+        var theirUsername = '<%= theirUsername %>'
+    </script>
 </head>
 
 <body>
@@ -40,12 +43,7 @@
                 <input onclick="testc()" class="sendButton" value="Post Rating">
             </div>
             <div class="feedChild1">
-                <label>Enter a Username</label><br>
-            </div>
-            <div class="feedChild1">
-                <input type="text" id="userRecieve" onclick="makeClean(document.getElementById('userRecieve'))" name="user_recieve" id ="userRecieve" class="requiredRatingInput"
-                        class="requiredRegister"
-                        style="width: 50%; height: 35px; border: 1px solid black; margin-top: 2%; color: black;"></input>
+                <label>Leave a rating for <%- theirUsername %></label><br><br>
             </div>
             <div class="feedChild1">
                 <label>Select a Rating</label><br>

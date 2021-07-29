@@ -96,11 +96,11 @@ function ready() {
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
 }
 
-function ratingFunction() {
+function ratingFunction(tUsername) {
 
     //let test = propmt("This is a test: ", "");
 
-    window.location.href = 'ratings'
+    window.location.assign("/ratings?theirUsername=" + tUsername)
 
 
 }

@@ -90,9 +90,6 @@ function testc(){
     comment = test2.value
     rating = test1.value
 
-
-    theirUsername = test3.value;
-
     var fill = "" + generateRandomNumber(1, 10000000);
 
     firebase.database().ref('ratings/' + fill).set({

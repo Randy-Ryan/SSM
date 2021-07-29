@@ -105,7 +105,7 @@
                         <% if(username !=items[item].username){ %>
                             <%- "<button onclick = " + "test('"
                                 +items[item].username+ "') type='button'>Message this seller</button>" %>
-                                <button class="btn-primary" onclick="ratingFunction()" type="button">Rate This
+                                <button class="btn-primary" onclick="ratingFunction('<%- items[item].username %>')" type="button">Rate This
                                     User</button>
                                 <% } %>
                     </span>
