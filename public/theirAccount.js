@@ -20,6 +20,49 @@ const dbRef = firebase.database().ref();
 
 window.onload = function () {
 
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            userID = user.uid;
+            document.getElementById("accountRef").style.display = "";
+
+            dbRef.child("users").child(userID).get().then((snapshot) => {
+                if (snapshot.exists()) {
+                    email = snapshot.val().email;
+                    username = snapshot.val().username;
+                    document.getElementById('storeRef').href = '/store?username=' + username;
+
+                    // document.getElementById("username").innerText = username;
+
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+            // set global vars to use for this user
+
+            // username = user.displayName;
+            // user.phoneNumber
+            // user.photoURL
+            // user.emailVerified
+            // user.email
+            // ...
+
+            // hide login/register pages
+            // will add more hides here
+            // document.getElementById("postRef").style.display = "";
+            document.getElementById("accountRef").style.display = "";
+
+
+            //load account page for now - should load home page
+
+        } else {
+            // User is signed out
+            // document.getElementById("postRef").style.display = "none";
+            // document.getElementById("accountRef").style.display = "none";
+            // userIsSignedOut();
+        }
+    });
     var overallRating = 0;
     var count = 0
     dbRef.child("ratings").get().then((querySnapshot) => {

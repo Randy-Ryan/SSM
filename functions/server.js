@@ -135,7 +135,7 @@ app.get('/filters', (req, res) => {
     });
 })
 
-app.get('/store', (req, res) => {
+app.get('/store', (req, res, next) => {
     shoes.on('value', (snapshot) => {
         res.render('store.ejs', {
             stripePublicKey: stripePublicKey,
@@ -146,6 +146,14 @@ app.get('/store', (req, res) => {
             quality: req.query.quality
         })
     });
+    res.send = function sendWrapper(...args) {
+        try {
+            send.apply(this, args);
+        } catch (err) {
+            console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+        }
+    };
+    next();
 })
 
 app.get('/checkout', (req, res) => {
