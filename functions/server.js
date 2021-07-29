@@ -86,7 +86,7 @@ app.get('/ratings', (req, res) => {
     });
 })
 
-app.get('/messages', (req, res) => {
+app.get('/messages', (req, res, next) => {
     var params2 = req.query;
     shoes.on('value', (snapshot) => {
         const data = snapshot.val();
@@ -96,7 +96,16 @@ app.get('/messages', (req, res) => {
             username: params2["username"],
             theirUsername: params2["theirUsername"]
         })
+        res.send = function sendWrapper(...args) {
+            try {
+                send.apply(this, args);
+            } catch (err) {
+                console.error(`Error in res.send | ${err.code} | ${err.message} | ${res.stack}`);
+            }
+        };
+        next();
     });
+
 })
 app.get('/theirAccount', (req, res) => {
     var params2 = req.query;

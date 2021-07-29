@@ -118,11 +118,11 @@ function acceptExchange(id) {
 
         }).then(function () {
             // route to home page and set the url params respectivly
-            alert('successfully added to database!');
-            // window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
+            alert('Exchange Accepted');
+            window.location.assign('/messages?username=' + username + '&theirUsername=' + theirUsername)
         }).catch(function (error) {
             // An error happened.
-            alert(error);
+            // alert(error);
         });
 
         var fill = "" + generateRandomNumber(1, 10000000);
@@ -135,11 +135,12 @@ function acceptExchange(id) {
             messageID: fill
         }).then(function () {
             // route to home page and set the url params respectivly
-            alert('successfully added to database!');
-         window.location.assign = '/messages?username=' + username + '&theirUsername=' + theirUsername
+            // alert('successfully added to database!');
+            // location.reload()
+        //  window.location.assign = '/messages?username=' + username + '&theirUsername=' + theirUsername
         }).catch(function (error) {
             // An error happened.
-            alert(error);
+            // alert(error);
         });
     }
 
@@ -178,11 +179,11 @@ function initExchange() {
 
         }).then(function () {
             // route to home page and set the url params respectivly
-            alert('successfully added to database!');
+            // alert('Message sent');
             // window.location.href = '/messages?username=' + username + '&theirUsername=' + theirUsername
         }).catch(function (error) {
             // An error happened.
-            alert(error);
+            // alert(error);
         });
 
         firebase.database().ref('messages/' + fill).set({
@@ -193,11 +194,11 @@ function initExchange() {
             messageID: fill
         }).then(function () {
             // route to home page and set the url params respectivly
-            alert('successfully added to database!');
+            alert('Exchange initiated');
          window.location.assign('/messages?username=' + username + '&theirUsername=' + theirUsername)
         }).catch(function (error) {
             // An error happened.
-            alert(error);
+            // alert(error);
         });
     }
 
@@ -233,11 +234,11 @@ function messageUser() {
             messageID: fill
         }).then(function () {
             // route to home page and set the url params respectivly
-            alert('successfully added to database!');
+            alert('Message sent');
             window.location.assign('/messages?username=' + username + '&theirUsername=' + theirUsername)
         }).catch(function (error) {
             // An error happened.
-            alert(error);
+            // alert(error);
         });
     }
 
