@@ -37,16 +37,32 @@ window.onload = function () {
                 console.error(error);
             });
 
+            var check = []
             dbRef.child("messages").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     if (doc.exists()) {
                         if (doc.val().userSend == username){
-                            document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>To: <a style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span><span style='text-align: right' class='main-message'>"+doc.val().message + "</span></span>"
+                            if (check.includes(doc.val().userSend) || check.includes(doc.val().userRecieve)){
+                                //do nothing
+                            }
+                            else{
+                                // document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>To: <a style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span><span style='text-align: right' class='main-message'>"+doc.val().message + "</span></span>"
+                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span></span>"
+                                check.push(doc.val().userRecieve)
+                            }
                         }
                         if (doc.val().userRecieve == username){
-                            document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>From: <a style='display: inline-block;' href='messages?username=" + doc.val().userRecieve +"&theirUsername=" + doc.val().userSend + "'>" +doc.val().userSend +"</a></span><span style='text-align: left' class='main-message'>"+ doc.val().message + "</span></span>"
+                            if (check.includes(doc.val().userSend) || check.includes(doc.val().userRecieve)){
+                                //do nothing
+                            }
+                            else{
+                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a style='display: inline-block;' href='messages?username=" + doc.val().userRecieve +"&theirUsername=" + doc.val().userSend + "'>" +doc.val().userSend +"</a></span></span>"
+                                check.push(doc.val().userSend)
+                            }
                         }
-                    } else {
+                    }
+                    
+                    else {
                         console.log("No data available");
                     }
                 })
