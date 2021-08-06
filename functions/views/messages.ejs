@@ -29,26 +29,24 @@
         </nav>
     </header>
     <!-- <div id = "username"></div> -->
-    <section class="border container content-section">
+    <section id = "messagesFeed">
         <div id = "mFeed">
-            <h2 class="section-header">Messages</h2>
+            <h2 id = "messHeader" class="section-header">Conversation with <%- theirUsername %></h2>
             <% for (const message in messages) { %>
                 <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername)) { %>
                     <div class="fromMSG" data-item-id="<%= messages[message].docID %>">
                         <span class="msg-container">
-                            <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " +
-                                messages[message].userRecieve + " </span><span class='main-message'>" + 
+                            <%- "<span class='ToFrom'>From " + messages[message].userSend+ " </span><span class='main-message'>" + 
                                     messages[message].message                    
                                     + "</span><span class=' DateTime'>(Date: " + messages[message].date+ ")</span>" %>
                         </span>
                     </div>
                     <% } %>
-                        <% if((messages[message].userRecieve==theirUsername && messages[message].userSend==username)){
+                        <% if((messages[message].userRecieve==theirUsername && messages[message].userSend==username && messages[message].message.slice(0,24) != "WOULD YOU LIKE TO ACCEPT")){
                             %>
                             <div class="toMSG" data-item-id="<%= messages[message].docID %>">
                                 <span class="msg-container">
-                                    <%- "<span class='ToFrom'>From " + messages[message].userSend + ": to " +
-                                        messages[message].userRecieve + " </span><span class='main-message'>" +
+                                    <%- "<span class='ToFrom'>From " + messages[message].userSend + " </span><span class='main-message'>" +
                                         messages[message].message + "</span><span class='DateTime'>(Date: " +
                                         messages[message].date + ")</span>" %>
                                 </span>
