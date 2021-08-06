@@ -7,7 +7,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
-    <title>Messages</title>
+    <title>Skate Shoe Mate | Messages</title>
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -30,7 +30,7 @@
     </header>
     <!-- <div id = "username"></div> -->
     <section class="border container content-section">
-        <div>
+        <div id = "mFeed">
             <h2 class="section-header">Messages</h2>
             <% for (const message in messages) { %>
                 <% if((messages[message].userRecieve==username && messages[message].userSend==theirUsername)) { %>

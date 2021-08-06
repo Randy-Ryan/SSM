@@ -47,7 +47,7 @@ window.onload = function () {
                             }
                             else{
                                 // document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>To: <a style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span><span style='text-align: right' class='main-message'>"+doc.val().message + "</span></span>"
-                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span></span>"
+                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a class = 'msgName' style='display: inline-block;' href='messages?username=" + doc.val().userSend +"&theirUsername=" + doc.val().userRecieve + "'>" + doc.val().userRecieve +"</a></span></span>"
                                 check.push(doc.val().userRecieve)
                             }
                         }
@@ -56,7 +56,7 @@ window.onload = function () {
                                 //do nothing
                             }
                             else{
-                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a style='display: inline-block;' href='messages?username=" + doc.val().userRecieve +"&theirUsername=" + doc.val().userSend + "'>" +doc.val().userSend +"</a></span></span>"
+                                document.getElementById("messageFeed").innerHTML += "<span class='msg-container'><span class='ToFrom'>User: <a class = 'msgName' style='display: inline-block;' href='messages?username=" + doc.val().userRecieve +"&theirUsername=" + doc.val().userSend + "'>" +doc.val().userSend +"</a></span></span>"
                                 check.push(doc.val().userSend)
                             }
                         }
@@ -81,7 +81,7 @@ window.onload = function () {
                             console.log(parse);
                             count++;
                             overallRating = parse + overallRating;
-                            document.getElementById("overallRating").innerHTML = "Overall rating: " + overallRating/count;
+                            document.getElementById("overallRating").innerHTML = "Overall rating: " + (overallRating/count).toFixed(1);
                         }
                     } else {
                         console.log("No data available");
@@ -139,7 +139,7 @@ function loadAccountPage() {
     // set the html account elements respectivly 
     document.getElementById("usernameDisplay").innerText = "Username: " + username;
     document.getElementById("emailDisplay").innerText = "Email: " + email;
-    document.getElementById("idDisplay").innerText = "ID: " + userID;
+    // document.getElementById("idDisplay").innerText = "ID: " + userID;
 
 }
 

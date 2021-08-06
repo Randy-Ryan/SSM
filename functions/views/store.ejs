@@ -38,7 +38,7 @@
     </header>
     <br>
     <section class="container content-section">
-        <div style="padding: 5px;" class="shadow border">
+        <div id="filterFeed" style="padding: 5px;" class="shadow border">
             Filters<br><br>
             <select name="stanceCategory" id="stanceFilters">
                 <option>Stance</option>
@@ -73,8 +73,24 @@
             <button onclick="applyFilters()" id="applyFilters">Apply filters</button>
 
         </div>
+        <section id = "cartFeed" class="container content-section shadow">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column"></span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">CHECKOUT</button>
+        </section>
+        <br>
+        <br>
         <h2 class="section-header">
-            <div>Shoe Listings</div>
             <button style="width:30%" id="newPost" type="button" class="btn-primary">Post New Shoe</button>
             <script type="text/javascript">
                 document.getElementById("newPost").onclick = function () {
@@ -87,8 +103,9 @@
         <div class="shop-container">
             <% for (const item in items) { %>
                <div class="shop-item shadow" data-item-id="<%= items[item].docID %>">
+
                    <a href ="/theirAccount?theirUsername=<%- items[item].username %>"><span class="shop-item-title">
-                        <%- items[item].brand + " size " + items[item].size + " | " + items[item].username %>
+                        <%- items[item].brand + " size " + items[item].size + " | <br>User: " + items[item].username %>
                     </span></a> 
                     <img class="shop-item-image" src="<%= items[item].imageURL %>">
                     <div class="shop-item-details">
@@ -150,21 +167,7 @@
 
         
     </section>
-    <section class="container content-section">
-        <h2 class="section-header">CART</h2>
-        <div class="cart-row">
-            <span class="cart-item cart-header cart-column">ITEM</span>
-            <span class="cart-price cart-header cart-column">PRICE</span>
-            <span class="cart-quantity cart-header cart-column"></span>
-        </div>
-        <div class="cart-items">
-        </div>
-        <div class="cart-total">
-            <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button">CHECKOUT</button>
-    </section>
+    
 </body>
 
 </html>

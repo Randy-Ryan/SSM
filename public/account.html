@@ -7,7 +7,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
-    <title>The Generics | About</title>
+    <title>Skate Shoe Mate | Account</title>
     <meta name="description" content="This is the description">
     <link rel="stylesheet" href="styles.css" />
     <script src="./account.js"></script>
@@ -27,32 +27,31 @@
         </nav>
     </header>
 
-    <section class="content-section container">
-        <h2 class="section-header">My Account Page</h2>
-    </section>
     <!-- FULL ACCOUNT PAGE -->
     <div id="accountPage" style="text-align: center; display: none;">
-        <p id="usernameDisplay" class="accountDisplay"></p>
-        <p id="emailDisplay" class="accountDisplay"></p>
+        <p id="usernameDisplay" class="accountDisplay shadow"></p>
+        <p id="emailDisplay" class="accountDisplay shadow"></p>
         <!-- This text will change once the db command is finished executing. This can be buggy sometimes - implementation needs work -->
-        <p id="idDisplay" class="accountDisplay">Getting user ID from database...</p>
+        <!-- <p id="idDisplay" class="accountDisplay">Getting user ID from database...</p> -->
 
         <br>
-
-        <div class="feed" id="messageFeed">
-            <h1 class="section-header">
-                <h1 class="section-header">Messages</h1>
-            </h1>
-        </div>
-        <div class="feed" id="postFeed">
-            <h1 class="section-header">Posts</h1>
-        </div>
-        <div class="feed" id="ratingsFeed">
-            <h1 class="section-header">Ratings</h1>
-        </div>
         <div class="feed" id="overallRating">
             <h1 class="section-header">Overall Rating</h1>
         </div>
+        <div class="feed" id="ratingsFeed">
+            <h1 class="section-header">My Ratings</h1>
+        </div>
+        <br>
+        <div class="feed" id="messageFeed">
+            <h1 class="section-header">
+                <h1 class="section-header">My Messages</h1>
+            </h1>
+        </div>
+        <div class="feed" id="postFeed">
+            <h1 class="section-header">My Posts</h1>
+        </div>
+       
+       
     </div>
     <br><br>
     <div style="text-align: center;">
